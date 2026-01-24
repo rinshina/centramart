@@ -1,0 +1,240 @@
+.order-details-page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #a01010;
+}
+
+.order-container {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 2rem;
+    background: #fff;
+}
+
+/* Order Status */
+.order-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.order-status::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.status-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.status-step.completed .status-icon {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.status-step.completed .status-icon::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100vw / 4);
+    height: 2px;
+    background: #28a745;
+    z-index: -1;
+}
+
+.status-step:last-child.completed .status-icon::after {
+    display: none;
+}
+
+.status-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.status-text {
+    font-size: 0.8rem;
+}
+
+.status-text strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.status-text small {
+    color: #666;
+}
+
+/* Info Sections */
+.info-section {
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-section h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.address-info {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Price Details */
+.price-details {
+    font-size: 0.9rem;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.price-row.total {
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Ordered Items */
+.ordered-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.ordered-item:last-child {
+    border-bottom: none;
+}
+
+.ordered-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 6px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h6 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.item-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a01010;
+}
+
+/* Review Section */
+.review-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star:hover,
+.star.active {
+    color: #ffc107;
+}
+
+.btn-submit {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.btn-submit:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .order-status {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .order-status::before {
+        display: none;
+    }
+    
+    .status-step.completed .status-icon::after {
+        display: none;
+    }
+    
+    .review-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

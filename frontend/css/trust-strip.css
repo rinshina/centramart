@@ -1,0 +1,42 @@
+.trust-strip {
+    margin: 3rem 0;
+}
+
+.trust-item {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1.25rem;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: #fff;
+}
+
+.trust-item img {
+    width: 36px;
+    height: 36px;
+}
+
+.trust-item h6 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.4px;
+}
+
+.trust-item p {
+    font-size: 0.75rem;
+    margin: 2px 0 0;
+    color: #6b7280;
+}
+
+/* Mobile polish */
+@media (max-width: 576px) {
+    .trust-item {
+        justify-content: center;
+        text-align: left;
+    }
+}

@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="css/index-user.css">
     <link rel="stylesheet" href="css/index-user-footer.css">
     <link rel="stylesheet" href="css/index-user-header.css">
+    <link rel="stylesheet" href="css/trust-strip.css">
+    <link rel="stylesheet" href="css/index-user-products-of-the-wek.css">
+    <link rel="stylesheet" href="css/mobile-deals.css">
+    <link rel="stylesheet" href="css/self-grooming.css">
+    <link rel="stylesheet" href="css/shop-by-discount.css">
+
+
 
 </head>
 
@@ -231,90 +238,149 @@
             </div>
         </section>
 
-        <section class="products-week">
+
+
+
+        <!-- PRODUCTS OF THE WEEK -->
+        <div id="products-of-the-week-placeholder"></div>
+        <!-- PROMOBANNER -->
+        <section class="promo-banner px-5">
             <div class="container">
+                <div class="promo-inner">
         
-                <!-- Section Header -->
-                <div class="section-header d-flex justify-content-between align-items-center mb-4">
-                    <h4 class="mb-0">Products of the Week</h4>
-                    <a href="#" class="view-all">View All →</a>
-                </div>
+                    <!-- LEFT -->
+                    <div class="promo-content">
+                        <span class="promo-tag">SAVE UP TO $200.00</span>
+                        <h2>MacBook Pro</h2>
+                        <p>Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage</p>
         
-                <!-- Products Grid -->
-                <div class="row g-4">
-        
-                    <!-- Product Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="assets/products/fridge.webp" alt="Smart Refrigerator">
-                            </div>
-        
-                            <div class="product-body">
-                                <span class="product-category">Kitchen</span>
-                                <h6 class="product-title">Smart Refrigerator</h6>
-        
-                                <div class="product-rating">
-                                    ★★★★★ <span>(35)</span>
-                                </div>
-        
-                                <div class="product-price">$1299.99</div>
-        
-                                <button class="btn add-cart-btn red">Add to Cart</button>
-                            </div>
-                        </div>
+                        <a href="pages/product-detail.html?id=macbook-pro" class="btn btn-dark">
+                            Shop Now →
+                        </a>
                     </div>
         
-                    <!-- Product Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="assets/products/washing-machine.webp" alt="Front Load Washer">
-                            </div>
-        
-                            <div class="product-body">
-                                <span class="product-category">Kitchen</span>
-                                <h6 class="product-title">Front Load Washer</h6>
-        
-                                <div class="product-rating">
-                                    ★★★★★ <span>(35)</span>
-                                </div>
-        
-                                <div class="product-price">$1299.99</div>
-        
-                                <button class="btn add-cart-btn dark">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Product Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="product-card">
-                            <div class="product-img">
-                                <img src="assets/products/microwave.webp" alt="Micro Oven SMEG">
-                            </div>
-        
-                            <div class="product-body">
-                                <span class="product-category">Kitchen</span>
-                                <h6 class="product-title">Micro Oven SMEG</h6>
-        
-                                <div class="product-rating">
-                                    ★★★★★ <span>(35)</span>
-                                </div>
-        
-                                <div class="product-price">$1299.99</div>
-        
-                                <button class="btn add-cart-btn dark">Add to Cart</button>
-                            </div>
-                        </div>
+                    <!-- RIGHT -->
+                    <div class="promo-image">
+                        <span class="promo-price">$1999</span>
+                        <img src="assets/banner/macbook-pro.png" alt="MacBook Pro">
                     </div>
         
                 </div>
             </div>
         </section>
+        <!-- POPULAR BRANDS -->
+        <section class="popular-brands">
+            <div class="container">
+        
+                <div class="section-header text-center mb-4">
+                    <h4 class="mb-0">Popular Brands</h4>
+                </div>
+        
+                <!-- CENTERED COL-10 -->
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-10">
+        
+                        <div class="slider-wrapper position-relative d-flex align-items-center">
+        
+                            <!-- LEFT ARROW -->
+                            <button class="slider-btn prev" data-target="#brands-track">
+                                ‹
+                            </button>
+        
+                            <!-- SLIDER -->
+                            <div class="slider-viewport">
+                                <div class="slider-track d-flex" id="brands-track">
+        
+                                    <!-- BRAND CARD -->
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/apple.png" alt="Apple"></div>
+                                        <p>Apple</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/samsung.png" alt="Samsung"></div>
+                                        <p>Samsung</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/sony.png" alt="Sony"></div>
+                                        <p>Sony</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/lg.png" alt="LG"></div>
+                                        <p>LG</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/dyson.png" alt="Dyson"></div>
+                                        <p>Dyson</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/bosch.png" alt="Bosch"></div>
+                                        <p>Bosch</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/panasonic.png" alt="Panasonic"></div>
+                                        <p>Panasonic</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/philips.png" alt="Philips"></div>
+                                        <p>Philips</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/whirlpool.png" alt="Whirlpool"></div>
+                                        <p>Whirlpool</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/smeg.png" alt="Smeg"></div>
+                                        <p>Smeg</p>
+                                    </div>
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="assets/brands/hp.png" alt="HP"></div>
+                                        <p>HP</p>
+                                    </div>
+        
+                                </div>
+                            </div>
+        
+                            <!-- RIGHT ARROW -->
+                            <button class="slider-btn next" data-target="#brands-track">
+                                ›
+                            </button>
+        
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+        <!-- TRUST STRIP -->
+        <div id="trust-strip-placeholder"></div>
+
+        <!-- LAPTOPS SAVINGS -->
+        <div id="laptop-savings-placeholder"></div>
+
+        <!-- MOBILE DEALS -->
+        <div id="mobile-deals-placeholder"></div>
+
+        <!-- SELF GROOMING -->
+        <div id="self-grooming-placeholder"></div>
+
+        <!-- SHOP BY DISCOUNT -->
+        <div id="shop-by-discount-placeholder"></div>
+
+
 
     </main>
 
+    
+    
     <!-- FOOTER -->
     <div id="footer-placeholder"></div>
 

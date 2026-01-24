@@ -220,3 +220,238 @@ body {
         height: 7rem;
     }
 }
+
+/* ===============================
+   POPULAR BRANDS SECTION
+================================ */
+
+.popular-brands {
+    padding: 4rem 0;
+}
+
+/* Section header */
+.popular-brands .section-header h4 {
+    font-weight: 600;
+}
+
+/* ===============================
+   SLIDER STRUCTURE
+================================ */
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Viewport hides overflow */
+.slider-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Sliding track */
+.slider-track {
+    display: flex;
+    gap: 32px;
+    transition: transform 0.35s ease;
+    will-change: transform;
+}
+
+/* ===============================
+   BRAND CARD
+================================ */
+
+.brand-card {
+    min-width: 120px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.brand-card p {
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: #111;
+}
+
+/* Circle container */
+.brand-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #f2f2f2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+}
+
+/* Logo behavior (logo only, flexible) */
+.brand-circle img {
+    max-width: 65%;
+    max-height: 65%;
+    object-fit: contain;
+}
+
+/* ===============================
+   SLIDER ARROWS
+================================ */
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #000;
+    color: #fff;
+
+    font-size: 22px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Left arrow */
+.slider-btn.prev {
+    left: -20px;
+}
+
+/* Right arrow */
+.slider-btn.next {
+    right: -20px;
+}
+
+/* Hover state */
+.slider-btn:hover {
+    background: #333;
+}
+
+/* Disabled (optional use later) */
+.slider-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ===============================
+   RESPONSIVENESS
+================================ */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .brand-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .slider-track {
+        gap: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .slider-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+
+    .slider-btn.prev {
+        left: -16px;
+    }
+
+    .slider-btn.next {
+        right: -16px;
+    }
+
+    .brand-card {
+        min-width: 100px;
+    }
+}
+/* PROMO BANNER */
+.promo-banner {
+    margin: 4rem 0;
+}
+
+.promo-inner {
+    background: #eef0f1;
+    border-radius: 16px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.promo-content {
+    max-width: 480px;
+}
+
+.promo-tag {
+    display: inline-block;
+    background: #b11212;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.promo-content h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.promo-content p {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.promo-image {
+    position: relative;
+}
+
+.promo-image img {
+    max-width: 420px;
+    width: 100%;
+}
+
+.promo-price {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #b11212;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .promo-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-image img {
+        max-width: 100%;
+    }
+}

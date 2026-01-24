@@ -123,13 +123,14 @@
     font-weight: 500;
 }
 
-.brand-card {
+.brands-grid .brand-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: fit-content;
-    height: fit-content;
     border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid #E4E7E9;
+    border-radius: 6px;
 }
 
 .brand-card img {

@@ -1,0 +1,247 @@
+.orders-page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #a01010;
+}
+
+.orders-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 0;
+}
+
+.filter-tab {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.filter-tab:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.filter-tab:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+.filter-tab.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.filter-tab:hover:not(.active) {
+    background: #e9ecef;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+    width: 250px;
+}
+
+.search-box .form-control {
+    padding-right: 40px;
+    font-size: 0.9rem;
+}
+
+.search-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Orders Table */
+.orders-table {
+    margin-top: 2rem;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px 6px 0 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.order-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.order-row:hover {
+    background: #f8f9fa;
+}
+
+.order-info .order-id {
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.order-info small {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-badge.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-badge.processing {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Action Button */
+.btn-view {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-view:hover {
+    background: #a01010;
+    color: #fff;
+    border-color: #a01010;
+}
+
+.order-row.filtered-out,
+.order-row.search-hidden {
+    display: none !important;
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.page-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.page-btn.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.page-btn:hover:not(.active) {
+    background: #f8f9fa;
+}
+
+.pagination-info {
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.pagination-info:hover {
+    color: #a01010;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table-header,
+    .order-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .table-header {
+        display: none;
+    }
+    
+    .order-row {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    .search-box {
+        width: 200px;
+    }
+    
+    .filter-tabs {
+        flex-wrap: wrap;
+    }
+}

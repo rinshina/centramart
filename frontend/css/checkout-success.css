@@ -1,0 +1,94 @@
+.checkout-success-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+}
+
+.success-card {
+    background: #fff;
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.success-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-circle {
+    width: 80px;
+    height: 80px;
+    background: #f0f8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.success-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.success-actions .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.btn-outline-danger {
+    color: #a01010;
+    border-color: #a01010;
+}
+
+.btn-outline-danger:hover {
+    background: #a01010;
+    border-color: #a01010;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #a01010;
+    border-color: #a01010;
+}
+
+.btn-danger:hover {
+    background: #8a0e0e;
+    border-color: #8a0e0e;
+}
+
+@media (max-width: 768px) {
+    .success-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .success-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .success-actions .btn {
+        width: 100%;
+    }
+}
