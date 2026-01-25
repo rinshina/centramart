@@ -1,0 +1,31 @@
+<div class="modal fade" id="userAccountModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content user-account-menu">
+            
+            <!-- Account -->
+            <div class="account-menu-item" onclick="window.location.href='account.html'">
+                <img src="../assets/icons/contact.png" width="24" height="24">
+                <span>Account</span>
+            </div>
+            
+            <!-- My Orders -->
+            <div class="account-menu-item" onclick="window.location.href='orders.html'">
+                <img src="../assets/icons/cart.png" width="24" height="24">
+                <span>My Orders</span>
+            </div>
+            
+            <!-- Wallet -->
+            <div class="account-menu-item" onclick="window.location.href='wallet.html'">
+                <img src="../assets/icons/payment.png" width="24" height="24">
+                <span>Wallet</span>
+            </div>
+            
+            <!-- Log out -->
+            <div class="account-menu-item logout-item" onclick="handleLogout(); bootstrap.Modal.getInstance(document.getElementById('userAccountModal')).hide();">
+                <img src="../assets/icons/left-arrow.png" width="24" height="24">
+                <span>Log out</span>
+            </div>
+            
+        </div>
+    </div>
+</div>

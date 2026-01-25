@@ -1,0 +1,168 @@
+.wallet-page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #a01010;
+}
+
+/* Wallet Balance */
+.wallet-balance {
+    padding: 2rem 0;
+}
+
+.balance-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.btn-add-money {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn-add-money:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Filters */
+.wallet-filters .form-select {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.wallet-filters .form-select:focus {
+    border-color: #a01010;
+    box-shadow: 0 0 0 0.25rem rgba(160, 16, 16, 0.25);
+}
+
+/* Transaction Table */
+.transaction-table {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.transaction-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.transaction-row:hover {
+    background: #f8f9fa;
+}
+
+.transaction-row:last-child {
+    border-bottom: none;
+}
+
+.col-amount.positive {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.col-amount.negative {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.status-badge.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.processing {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .balance-amount {
+        font-size: 2rem;
+    }
+    
+    .table-header,
+    .transaction-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        text-align: left;
+    }
+    
+    .table-header {
+        display: none;
+    }
+    
+    .transaction-row {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    .transaction-row::before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}

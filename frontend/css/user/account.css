@@ -1,0 +1,209 @@
+.account-page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #a01010;
+}
+
+/* Sidebar */
+.account-sidebar {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.account-sidebar h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.account-menu {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.account-menu li {
+    padding: 0.75rem 0;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.account-menu li:hover,
+.account-menu li.active {
+    color: #a01010;
+    font-weight: 500;
+}
+
+.contact-info {
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background: #a01010;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contact-item p {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0.25rem 0;
+}
+
+/* Profile Section */
+.profile-section,
+.password-section {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 1rem;
+}
+
+.profile-section h5,
+.password-section h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    border-color: #a01010;
+    box-shadow: 0 0 0 0.25rem rgba(160, 16, 16, 0.25);
+}
+
+.gender-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    accent-color: #a01010;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn-outline-secondary {
+    color: #666;
+    border-color: #ddd;
+}
+
+.btn-outline-secondary:hover {
+    background: #f8f9fa;
+    border-color: #ddd;
+    color: #666;
+}
+
+.btn-danger {
+    background: #a01010;
+    border-color: #a01010;
+}
+
+.btn-danger:hover {
+    background: #8a0e0e;
+    border-color: #8a0e0e;
+}
+
+.btn-dark {
+    background: #000;
+    border-color: #000;
+}
+
+.btn-dark:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.forgot-password-link {
+    color: #a01010;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password-link:hover {
+    color: #8a0e0e;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .account-sidebar {
+        margin-bottom: 2rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .gender-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

@@ -1,0 +1,182 @@
+.saved-address-page {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #a01010;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Address Container */
+.address-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Address Card */
+.address-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.address-card:has(input:checked) {
+    border-color: #a01010;
+}
+
+.address-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.address-header input[type="radio"] {
+    accent-color: #a01010;
+    width: 18px;
+    height: 18px;
+}
+
+.address-label {
+    flex: 1;
+    cursor: pointer;
+    margin: 0;
+}
+
+.address-label strong {
+    font-size: 1rem;
+    color: #333;
+}
+
+.default-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: #28a745;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.address-details {
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.address-details p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.address-actions {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.action-btn:hover {
+    background: #f0f0f0;
+}
+
+.edit-btn:hover {
+    background: #e3f2fd;
+}
+
+.delete-btn:hover {
+    background: #ffebee;
+}
+
+/* Add New Address Card */
+.add-new-card {
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-new-card:hover {
+    border-color: #a01010;
+    background: #fff5f5;
+}
+
+.add-new-content {
+    text-align: center;
+    color: #666;
+}
+
+.add-icon {
+    font-size: 2rem;
+    color: #a01010;
+    margin-bottom: 0.5rem;
+}
+
+.add-new-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .address-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .address-card {
+        padding: 1rem;
+    }
+    
+    .address-details {
+        margin-left: 2rem;
+    }
+    
+    .address-actions {
+        position: static;
+        margin-top: 1rem;
+        justify-content: flex-end;
+    }
+}

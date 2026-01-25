@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h4>CENTRMART</h4>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="dashboard.html">📊 Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="orders.html">📦 Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-dropdown">👥 Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html">📱 Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-dropdown">💳 Payments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-dropdown">🎫 Coupons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-dropdown">📊 Sales & Reports</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-section">
+                    <h6>Admin</h6>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-dropdown">👤 Admin role</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="settings.html">⚙️ System Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Dashboard</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search orders, customers or products...">
+                        <button>🔍</button>
+                    </div>
+                    <div class="notifications">🔔</div>
+                    <div class="admin-profile">
+                        <img src="../assets/icons/contact.png" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                
+                <!-- Stats Cards -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h6>Total Orders</h6>
+                            <span class="more-btn">⋯</span>
+                        </div>
+                        <div class="stat-number">10,742</div>
+                        <div class="stat-meta">
+                            <span class="stat-change positive">Orders: 9,845</span>
+                            <span class="stat-period">Previous 30 days (9,845 orders)</span>
+                        </div>
+                        <button class="stat-btn">View Orders</button>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h6>Fulfilled Orders</h6>
+                            <span class="more-btn">⋯</span>
+                        </div>
+                        <div class="stat-number">7,430</div>
+                        <div class="stat-meta">
+                            <span class="stat-change">orders</span>
+                            <span class="stat-period">Fulfilled: 271<br>Pending: 3</span>
+                        </div>
+                        <button class="stat-btn">View Orders</button>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h6>Pending Orders</h6>
+                            <span class="more-btn">⋯</span>
+                        </div>
+                        <div class="stat-number">1,204</div>
+                        <div class="stat-meta">
+                            <span class="stat-change">orders</span>
+                            <span class="stat-period">Processed: 3<br>Awaiting fulfillment: 1</span>
+                        </div>
+                        <button class="stat-btn">View Pending Orders</button>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="chart-section">
+                    <div class="chart-header">
+                        <h6>Order Processing Overview</h6>
+                        <div class="chart-controls">
+                            <button class="chart-btn active">This week</button>
+                            <button class="chart-btn">Last week</button>
+                            <span class="more-btn">⋯</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-stats">
+                        <div class="chart-stat">
+                            <div class="stat-value">1,240</div>
+                            <div class="stat-label">New Orders</div>
+                        </div>
+                        <div class="chart-stat">
+                            <div class="stat-value">812</div>
+                            <div class="stat-label">Processing</div>
+                        </div>
+                        <div class="chart-stat">
+                            <div class="stat-value">276</div>
+                            <div class="stat-label">Delivered</div>
+                        </div>
+                        <div class="chart-stat">
+                            <div class="stat-value">152</div>
+                            <div class="stat-label">Fraud</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-placeholder">
+                        <div class="chart-line">📈 Chart visualization would go here</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/dashboard.js"></script>
+</body>
+</html>

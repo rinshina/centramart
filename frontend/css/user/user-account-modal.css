@@ -1,0 +1,39 @@
+.user-account-menu {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    overflow: hidden;
+}
+
+.account-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.account-menu-item:last-child {
+    border-bottom: none;
+}
+
+.account-menu-item:hover {
+    background-color: #f8f9fa;
+}
+
+.account-menu-item span {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.logout-item:hover {
+    background-color: #fff5f5;
+}
+
+.logout-item span {
+    color: #dc3545;
+}

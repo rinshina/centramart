@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Address - CentraMart</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/user/index-user-header.css">
+    <link rel="stylesheet" href="../css/user/index-user-footer.css">
+    <link rel="stylesheet" href="../css/user/add-new-address.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="add-address-page">
+        <div class="container py-4">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">CentraMart</a></li>
+                    <li class="breadcrumb-item active">Add New Address</li>
+                </ol>
+            </nav>
+
+            <!-- Page Title -->
+            <h2 class="page-title text-center mb-5">Add New Address</h2>
+
+            <!-- Address Form -->
+            <div class="address-form-container">
+                <form class="address-form">
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" class="form-control" placeholder="Enter phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addressLine1">Address line 1 *</label>
+                        <input type="text" id="addressLine1" class="form-control" placeholder="House/Flat Number, Building Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="addressLine2">Address line 2(optional)</label>
+                        <textarea id="addressLine2" class="form-control" rows="2" placeholder="Area, Land Mark
+(Optional)"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" class="form-control" placeholder="City">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" class="form-control" placeholder="State">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="pincode">Pincode *</label>
+                                <input type="text" id="pincode" class="form-control" placeholder="Pincode">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group default-toggle">
+                        <div class="toggle-container">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="defaultAddress">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="default-label">Default</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel">CANCEL</button>
+                        <button type="submit" class="btn btn-save">SAVE ADDRESS</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/user/header-auth.js"></script>
+    <script>
+        // Load partials
+        function loadHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        
+        loadHTML("header-placeholder", "partials/header.html");
+        loadHTML("footer-placeholder", "partials/footer.html");
+        
+        // Initialize auth state after header loads
+        setTimeout(initializeAuthState, 100);
+
+        // Cancel button functionality
+        document.querySelector('.btn-cancel').addEventListener('click', function() {
+            window.location.href = 'saved-address.html';
+        });
+        
+        // Save address form submission
+        document.querySelector('.address-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'saved-address.html';
+        });
+    </script>
+</body>
+</html>

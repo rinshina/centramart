@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CentraMart</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../css/user/index-user.css">
+    <link rel="stylesheet" href="../css/user/index-user-footer.css">
+    <link rel="stylesheet" href="../css/user/index-user-header.css">
+    <link rel="stylesheet" href="../css/user/trust-strip.css">
+    <link rel="stylesheet" href="../css/user/index-user-products-of-the-wek.css">
+    <link rel="stylesheet" href="../css/user/mobile-deals.css">
+    <link rel="stylesheet" href="../css/user/self-grooming.css">
+    <link rel="stylesheet" href="../css/user/shop-by-discount.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <main id="main-content">
+        <!-- add homepage sections later -->
+
+
+        <!-- HERO BANNER SLIDER -->
+        <section class="hero-banner ">
+            <div class="container position-relative ">
+        
+                <div class="banner-slider">
+        
+                    <!-- SLIDE 1 -->
+                    <div class="banner-slide active">
+                        <div class="banner-wrapper">
+                            <div class="banner-content">
+                                <span class="banner-eyebrow">iPhone 17 Pro</span>
+                                <h1>Now's the perfect time<br>to upgrade.</h1>
+                                <p class="banner-subtext">Starting at $4220</p>
+                                <a href="#" class="btn btn-outline-light banner-btn">Buy now</a>
+                            </div>
+        
+                            <div class="banner-image">
+                                <img src="../assets/categories/mobiles.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- SLIDE 2 -->
+                    <div class="banner-slide">
+                        <div class="banner-wrapper dark-blue">
+                            <div class="banner-content">
+                                <span class="banner-eyebrow">Samsung</span>
+                                <h1>Galaxy S Series<br>Big Upgrade Deals</h1>
+                                <p class="banner-subtext">Up to 20% off</p>
+                                <a href="#" class="btn btn-outline-light banner-btn">Shop now</a>
+                            </div>
+        
+                            <div class="banner-image">
+                                <img src="../assets/products/Samsung Galaxy S24 Ultra 5G Smartphone, Black, 256 GB.png" alt="Samsung Galaxy S24 Ultra 5G Smartphone, Black, 256 GB">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- SLIDE 3 -->
+                    <div class="banner-slide">
+                        <div class="banner-wrapper grey">
+                            <div class="banner-content">
+                                <span class="banner-eyebrow">Home Appliances</span>
+                                <h1>Smart Living<br>Starts Here</h1>
+                                <p class="banner-subtext">Save on kitchen essentials</p>
+                                <a href="#" class="btn btn-outline-light banner-btn">Explore</a>
+                            </div>
+        
+                            <div class="banner-image">
+                                <img src="../assets/products/Smeg Single Door Refrigerator 38 Liters - Pastel Blue (FAB5RPB3GA).png" alt="">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- SLIDE 4 -->
+                    <div class="banner-slide">
+                        <div class="banner-wrapper black">
+                            <div class="banner-content">
+                                <span class="banner-eyebrow">Gaming</span>
+                                <h1>Level Up<br>Your Game</h1>
+                                <p class="banner-subtext">Consoles & accessories</p>
+                                <a href="#" class="btn btn-outline-light banner-btn">View deals</a>
+                            </div>
+        
+                            <div class="banner-image">
+                                <img src="../assets/products/Sony PlayStation PS5 Standard Console (CFI2116A01Y).png" alt="">
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <!-- ARROWS -->
+                <button class="banner-arrow left" id="bannerPrev">‹</button>
+                <button class="banner-arrow right" id="bannerNext">›</button>
+        
+                <!-- DOTS -->
+                <div class="banner-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+        
+            </div>
+        </section>
+
+        <!-- shop by categories -->
+        <section class="shop-categories py-5 row d-flex justify-content-center align-items-center">
+            <div class="col-10 container position-relative">
+        
+                <h4 class="text-center mb-4">Shop by Categories</h4>
+        
+                <!-- Left Arrow -->
+                <button class="category-arrow left-arrow" onclick="scrollCategories(-2)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.25 12H3.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.5 5.25L3.75 12L10.5 18.75" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+        
+                <!-- Right Arrow -->
+                <button class="category-arrow right-arrow" onclick="scrollCategories(2)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.75 12H20.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M13.5 5.25L20.25 12L13.5 18.75" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+        
+                <div class="categories-wrapper">
+                    <div class="categories-track">
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/mobiles.png" alt="Mobiles">
+                            </div>
+                            <p>Mobiles</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/laptops.png" alt="Computers & Tablets">
+                            </div>
+                            <p>Computers & Tablets</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/televisions.webp" alt="Televisions & Audio">
+                            </div>
+                            <p>Televisions & Audio</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/cameras.webp" alt="Cameras">
+                            </div>
+                            <p>Cameras</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/home-appliances.webp" alt="Home Appliances">
+                            </div>
+                            <p>Home Appliances</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/headphones-speakers.webp" alt="Headphones & Speakers">
+                            </div>
+                            <p>Headphones & Speakers</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/networking-smart-devices.webp" alt="Networking & Smart Devices">
+                            </div>
+                            <p>Networking & Smart Devices</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/accessories.webp" alt="Accessories">
+                            </div>
+                            <p>Accessories</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/gaming.webp" alt="Gaming">
+                            </div>
+                            <p>Gaming</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/printers.webp" alt="Printers & More">
+                            </div>
+                            <p>Printers & More</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/watches.webp" alt="Watches & More">
+                            </div>
+                            <p>Watches & More</p>
+                        </div>
+        
+                        <div class="category-card">
+                            <div class="category-img">
+                                <img src="../assets/categories/dyson.webp" alt="Personal Care">
+                            </div>
+                            <p>Personal Care</p>
+                        </div>
+        
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+
+
+
+
+        <!-- PRODUCTS OF THE WEEK -->
+        <div id="products-of-the-week-placeholder"></div>
+        <!-- PROMOBANNER -->
+        <section class="promo-banner px-5">
+            <div class="container">
+                <div class="promo-inner">
+        
+                    <!-- LEFT -->
+                    <div class="promo-content">
+                        <span class="promo-tag">SAVE UP TO $200.00</span>
+                        <h2>MacBook Pro</h2>
+                        <p>Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage</p>
+        
+                        <a href="pages/product-detail.html?id=macbook-pro" class="btn btn-dark">
+                            Shop Now →
+                        </a>
+                    </div>
+        
+                    <!-- RIGHT -->
+                    <div class="promo-image">
+                        <span class="promo-price">$1999</span>
+                        <img src="../assets/banner/macbook-pro.png" alt="MacBook Pro">
+                    </div>
+        
+                </div>
+            </div>
+        </section>
+        <!-- POPULAR BRANDS -->
+        <section class="popular-brands">
+            <div class="container">
+        
+                <div class="section-header text-center mb-4">
+                    <h4 class="mb-0">Popular Brands</h4>
+                </div>
+        
+                <!-- CENTERED COL-10 -->
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-10">
+        
+                        <div class="slider-wrapper position-relative d-flex align-items-center">
+        
+                            <!-- LEFT ARROW -->
+                            <button class="slider-btn prev" data-target="#brands-track">
+                                ‹
+                            </button>
+        
+                            <!-- SLIDER -->
+                            <div class="slider-viewport">
+                                <div class="slider-track d-flex" id="brands-track">
+        
+                                    <!-- BRAND CARD -->
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/apple.png" alt="Apple"></div>
+                                        <p>Apple</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/samsung.png" alt="Samsung"></div>
+                                        <p>Samsung</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/sony.png" alt="Sony"></div>
+                                        <p>Sony</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/lg.png" alt="LG"></div>
+                                        <p>LG</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/dyson.png" alt="Dyson"></div>
+                                        <p>Dyson</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/bosch.png" alt="Bosch"></div>
+                                        <p>Bosch</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/panasonic.png" alt="Panasonic"></div>
+                                        <p>Panasonic</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/philips.png" alt="Philips"></div>
+                                        <p>Philips</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/whirlpool.png" alt="Whirlpool"></div>
+                                        <p>Whirlpool</p>
+                                    </div>
+                                    
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/smeg.png" alt="Smeg"></div>
+                                        <p>Smeg</p>
+                                    </div>
+                                    <div class="brand-card">
+                                        <div class="brand-circle"><img src="../assets/brands/hp.png" alt="HP"></div>
+                                        <p>HP</p>
+                                    </div>
+        
+                                </div>
+                            </div>
+        
+                            <!-- RIGHT ARROW -->
+                            <button class="slider-btn next" data-target="#brands-track">
+                                ›
+                            </button>
+        
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+        <!-- TRUST STRIP -->
+        <div id="trust-strip-placeholder"></div>
+
+        <!-- LAPTOPS SAVINGS -->
+        <div id="laptop-savings-placeholder"></div>
+
+        <!-- MOBILE DEALS -->
+        <div id="mobile-deals-placeholder"></div>
+
+        <!-- SELF GROOMING -->
+        <div id="self-grooming-placeholder"></div>
+
+        <!-- SHOP BY DISCOUNT -->
+        <div id="shop-by-discount-placeholder"></div>
+
+
+
+    </main>
+
+    
+    
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- MODALS -->
+    <div id="login-modal-placeholder"></div>
+    <div id="signup-modal-placeholder"></div>
+    <div id="forgot-password-modal-placeholder"></div>
+    <div id="otp-modal-placeholder"></div>
+    <div id="user-account-modal-placeholder"></div>
+
+
+    <!-- Bootstrap JS (required for dropdowns & modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Header Auth JS -->
+    <script src="../js/user/header-auth.js"></script>
+    
+    <!-- Page JS -->
+    <script src="../js/user/index-user.js"></script>
+
+</body>
+
+</html>

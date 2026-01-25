@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - CentraMart</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/user/index-user-header.css">
+    <link rel="stylesheet" href="../css/user/index-user-footer.css">
+    <link rel="stylesheet" href="../css/user/index-user-products-of-the-wek.css">
+    <link rel="stylesheet" href="../css/user/wishlist.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="wishlist-page">
+        <div class="container py-4">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">CentraMart</a></li>
+                    <li class="breadcrumb-item active">Wishlist</li>
+                </ol>
+            </nav>
+
+            <!-- Wishlist Title -->
+            <h2 class="wishlist-title mb-4">Wishlist</h2>
+
+            <!-- Wishlist Products Grid -->
+            <div class="wishlist-grid" id="wishlistGrid">
+                
+                <!-- Product 1 -->
+                <div class="wishlist-item">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../assets/products/mobiles/Samsung Galaxy S24 Ultra 5G Smartphone, Black, 256 GB.png" alt="Samsung Galaxy S24 Ultra 5G">
+                        </div>
+                        <div class="product-body">
+                            <div class="rating">★★★★★ <span>(52)</span></div>
+                            <h6 class="product-title">Samsung Galaxy S24 Ultra 5G Smartphone</h6>
+                            <div class="product-price">$2099.99</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="wishlist-item">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../assets/products/personal-care/Beurer Multigroomer for Beard, Hair, and Body Trimming.png" alt="Bose QuietComfort Wireless">
+                        </div>
+                        <div class="product-body">
+                            <div class="rating">★★★★★ <span>(96)</span></div>
+                            <h6 class="product-title">Bose QuietComfort Wireless Over-Ear Headphones Tru...</h6>
+                            <div class="product-price">$899</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="wishlist-item">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../assets/products/Samsung Front Load Washer Dryer.webp" alt="Smeg Toaster 2 Slice">
+                        </div>
+                        <div class="product-body">
+                            <div class="rating">★★★★☆ <span>(35)</span></div>
+                            <h6 class="product-title">Smeg Toaster 2 Slice, Pastel Blue (TSF01PBUK)</h6>
+                            <div class="product-price">$749</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="wishlist-item">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../assets/products/personal-care/Wahl Pure Confidence Lady Grooming Kit (09865-127).png" alt="Apple Watch SE 3 GPS">
+                        </div>
+                        <div class="product-body">
+                            <div class="rating">★★★★★ <span>(124)</span></div>
+                            <h6 class="product-title">Apple Watch SE 3 GPS Starlight Aluminum Case</h6>
+                            <div class="product-price">$999</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="wishlist-item">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../assets/products/laptops/Apple MacBook Air (2025) 13-inch M4 chip with 10-core CPU and 8-core .png" alt="Samsung Galaxy Tab S20 FE">
+                        </div>
+                        <div class="product-body">
+                            <div class="rating">★★★★★ <span>(35)</span></div>
+                            <h6 class="product-title">Samsung Galaxy Tab S20 FE WiFi Blue, 128 GB</h6>
+                            <div class="product-price">$899.99</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/user/header-auth.js"></script>
+    <script src="../js/user/wishlist.js"></script>
+    <script>
+        // Load partials
+        function loadHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        
+        loadHTML("header-placeholder", "partials/header.html");
+        loadHTML("footer-placeholder", "partials/footer.html");
+        
+        // Initialize auth state after header loads
+        setTimeout(initializeAuthState, 100);
+    </script>
+</body>
+</html>

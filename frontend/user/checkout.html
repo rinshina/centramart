@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CentraMart</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/user/index-user-header.css">
+    <link rel="stylesheet" href="../css/user/index-user-footer.css">
+    <link rel="stylesheet" href="../css/user/checkout.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="checkout-page">
+        <div class="container py-5">
+            
+            <div class="row">
+                
+                <!-- LEFT COLUMN -->
+                <div class="col-lg-8">
+                    
+                    <!-- BILLING INFORMATION -->
+                    <div class="checkout-section">
+                        <h5>Billing Information</h5>
+                        
+                        <!-- Address Options -->
+                        <div class="address-option">
+                            <input type="radio" name="address" id="home" checked>
+                            <label for="home">
+                                <strong>Home</strong><br>
+                                Ryan Gosling, 123 Summer<br>
+                                Street<br>
+                                +44 Street, Sector 18<br>
+                                Mumbai, Maharashtra - 400001<br>
+                                India<br>
+                                <img src="../assets/icons/call icon.png" width="16"> <img src="../assets/icons/mail.png" width="16">
+                            </label>
+                            <span class="default-badge">Default</span>
+                        </div>
+                        
+                        <div class="address-option">
+                            <input type="radio" name="address" id="office">
+                            <label for="office">
+                                <strong>Office</strong><br>
+                                Ryan Gosling, 992 Ocean View<br>
+                                Towers<br>
+                                Andheri East, Gujarat - 380009<br>
+                                India<br>
+                                +91 9876543210<br>
+                                <img src="../assets/icons/call icon.png" width="16"> <img src="../assets/icons/mail.png" width="16">
+                            </label>
+                        </div>
+                        
+                        <button class="btn btn-outline-secondary mt-3">+ Add New Address</button>
+                    </div>
+                    
+                    <!-- PAYMENT OPTION -->
+                    <div class="checkout-section">
+                        <h5>Payment Option</h5>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <img src="../assets/icons/dollar.png" width="24">
+                                <span>Cash on Delivery</span>
+                            </div>
+                            <div class="payment-method">
+                                <img src="../assets/icons/wallet.png" width="24">
+                                <span>Wallet</span>
+                            </div>
+                            <div class="payment-method">
+                                <img src="../assets/payments/paypal.png" width="24">
+                                <span>Paypal</span>
+                            </div>
+                            <div class="payment-method">
+                                <img src="../assets/payments/amazonpay.png" width="24">
+                                <span>Amazon Pay</span>
+                            </div>
+                            <div class="payment-method active">
+                                <img src="../assets/icons/payment.png" width="24">
+                                <span>Debit/Credit Card</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Details -->
+                        <div class="card-details">
+                            <div class="form-group">
+                                <label>Name on Card</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Expire Date</label>
+                                        <input type="text" class="form-control" placeholder="DD/YY">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>CVC</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ADDITIONAL INFORMATION -->
+                    <div class="checkout-section">
+                        <h5>Additional Information</h5>
+                        
+                        <div class="form-group">
+                            <label>Order Notes (Optional)</label>
+                            <textarea class="form-control" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- RIGHT COLUMN - ORDER SUMMARY -->
+                <div class="col-lg-4">
+                    <div class="order-summary">
+                        <h5>Order Summary</h5>
+                        
+                        <!-- Product 1 -->
+                        <div class="order-item">
+                            <img src="../assets/products/Canon EOS 1500D DSLR .png" alt="Canon EOS">
+                            <div class="item-info">
+                                <h6>Canon EOS 1500D DSLR Camera Body+ 18...</h6>
+                                <span>1 x $799</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="order-item">
+                            <img src="../assets/products/personal-care/Wahl Pure Confidence Lady Grooming Kit (09865-127).png" alt="Headphones">
+                            <div class="item-info">
+                                <h6>Wired Over-Ear Gaming Headphones with U...</h6>
+                                <span>3 x $299</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Totals -->
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Sub-total</span>
+                                <span>$300</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping</span>
+                                <span>Free</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Discount</span>
+                                <span>$24</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Tax</span>
+                                <span>$61.99</span>
+                            </div>
+                            <div class="total-row final">
+                                <span>Total</span>
+                                <span>$347.99 USD</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-place-order" onclick="window.location.href='checkout-success.html'">PLACE ORDER →</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/user/header-auth.js"></script>
+    <script>
+        // Load partials
+        function loadHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        
+        loadHTML("header-placeholder", "partials/header.html");
+        loadHTML("footer-placeholder", "partials/footer.html");
+        
+        // Initialize auth state after header loads
+        setTimeout(initializeAuthState, 100);
+    </script>
+</body>
+</html>

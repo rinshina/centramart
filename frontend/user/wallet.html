@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet - CentraMart</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/user/index-user-header.css">
+    <link rel="stylesheet" href="../css/user/index-user-footer.css">
+    <link rel="stylesheet" href="../css/user/wallet.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="wallet-page">
+        <div class="container py-4">
+            
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">CentraMart</a></li>
+                    <li class="breadcrumb-item active">Wallet</li>
+                </ol>
+            </nav>
+
+            <!-- Wallet Balance -->
+            <div class="wallet-balance text-center mb-5">
+                <h1 class="balance-amount">$ 10,742</h1>
+                <button class="btn btn-add-money">ADD +</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="wallet-filters mb-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-select" id="typeFilter" onchange="applyFilters()">
+                            <option value="all">All Transactions</option>
+                            <option value="credit">Credit</option>
+                            <option value="debit">Debit</option>
+                            <option value="refund">Refund</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-select" id="sortFilter" onchange="applySorting()">
+                            <option value="latest">Latest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="highest">Highest Amount</option>
+                            <option value="lowest">Lowest Amount</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction Table -->
+            <div class="transaction-table">
+                <div class="table-header">
+                    <div class="col-type">Transaction Type</div>
+                    <div class="col-date">Date</div>
+                    <div class="col-amount">Amount</div>
+                    <div class="col-status">Status</div>
+                </div>
+
+                <div class="transaction-row" data-type="credit" data-date="2026-01-01" data-amount="1200">
+                    <div class="col-type">Credit</div>
+                    <div class="col-date">01/01/2026</div>
+                    <div class="col-amount positive">$1200</div>
+                    <div class="col-status">
+                        <span class="status-badge completed">Completed</span>
+                    </div>
+                </div>
+
+                <div class="transaction-row" data-type="refund" data-date="2025-10-10" data-amount="400">
+                    <div class="col-type">Refund</div>
+                    <div class="col-date">10/10/2025</div>
+                    <div class="col-amount positive">$400</div>
+                    <div class="col-status">
+                        <span class="status-badge completed">Completed</span>
+                    </div>
+                </div>
+
+                <div class="transaction-row" data-type="debit" data-date="2025-10-01" data-amount="-200">
+                    <div class="col-type">Debit</div>
+                    <div class="col-date">01/10/2025</div>
+                    <div class="col-amount negative">-$200</div>
+                    <div class="col-status">
+                        <span class="status-badge completed">Completed</span>
+                    </div>
+                </div>
+
+                <div class="transaction-row" data-type="refund" data-date="2025-09-15" data-amount="-1000">
+                    <div class="col-type">Refund</div>
+                    <div class="col-date">15/09/2025</div>
+                    <div class="col-amount negative">-$1000</div>
+                    <div class="col-status">
+                        <span class="status-badge processing">Processing</span>
+                    </div>
+                </div>
+
+                <div class="transaction-row" data-type="credit" data-date="2025-10-10" data-amount="1200">
+                    <div class="col-type">Credit</div>
+                    <div class="col-date">10/10/2025</div>
+                    <div class="col-amount positive">$1200</div>
+                    <div class="col-status">
+                        <span class="status-badge completed">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/user/header-auth.js"></script>
+    <script>
+        // Load partials
+        function loadHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        
+        loadHTML("header-placeholder", "partials/header.html");
+        loadHTML("footer-placeholder", "partials/footer.html");
+        
+        // Initialize auth state after header loads
+        setTimeout(initializeAuthState, 100);
+        
+        // Filter transactions by type
+        function applyFilters() {
+            const typeFilter = document.getElementById('typeFilter').value;
+            const rows = document.querySelectorAll('.transaction-row');
+            
+            rows.forEach(row => {
+                const type = row.dataset.type;
+                if (typeFilter === 'all' || type === typeFilter) {
+                    row.style.display = 'grid';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        // Sort transactions
+        function applySorting() {
+            const sortFilter = document.getElementById('sortFilter').value;
+            const container = document.querySelector('.transaction-table');
+            const header = container.querySelector('.table-header');
+            const rows = Array.from(container.querySelectorAll('.transaction-row'));
+            
+            rows.sort((a, b) => {
+                switch(sortFilter) {
+                    case 'latest':
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    case 'oldest':
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    case 'highest':
+                        return parseFloat(b.dataset.amount) - parseFloat(a.dataset.amount);
+                    case 'lowest':
+                        return parseFloat(a.dataset.amount) - parseFloat(b.dataset.amount);
+                    default:
+                        return 0;
+                }
+            });
+            
+            // Re-append sorted rows
+            rows.forEach(row => container.appendChild(row));
+        }
+    </script>
+</body>
+</html>
