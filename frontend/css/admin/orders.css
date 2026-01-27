@@ -1,0 +1,325 @@
+.orders-content {
+    padding: 1.5rem;
+}
+
+/* Orders Header */
+.orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.orders-title h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.orders-title p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+.more-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Order Stats */
+.order-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.order-stat {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.stat-period {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Filter Tabs and Search Container */
+.filter-search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-tab {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.filter-tab.active {
+    background: #f8f9fa;
+    color: #333;
+    font-weight: 500;
+}
+
+.filter-tab:hover {
+    background: #f8f9fa;
+}
+
+/* Search Control */
+.search-control {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+.search-control input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    width: 300px;
+}
+
+.search-control button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background: #f8f9fa;
+}
+
+/* Orders Table */
+.orders-table {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 60px 120px 150px 80px 120px 120px 150px 100px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 60px 120px 150px 80px 120px 120px 150px 100px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.table-row:hover {
+    background: #f8f9fa;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+/* Payment Status */
+.payment-status {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.payment-status.paid {
+    color: #28a745;
+}
+
+.payment-status.unpaid {
+    color: #dc3545;
+}
+
+/* Order Status */
+.order-status {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.order-status.delivered {
+    background: #d4edda;
+    color: #155724;
+}
+
+.order-status.shipped {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.order-status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.order-status.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* View Button */
+.view-btn {
+    background: none;
+    border: 1px solid #e0e0e0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-btn:hover {
+    background: #f8f9fa;
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.page-btn {
+    background: none;
+    border: 1px solid #e0e0e0;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-btn.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.page-btn:hover {
+    background: #f8f9fa;
+}
+
+.pagination-info {
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+}
+
+.pagination-info:hover {
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .order-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .table-controls {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .orders-table {
+        overflow-x: auto;
+    }
+    
+    .table-header,
+    .table-row {
+        min-width: 800px;
+    }
+}

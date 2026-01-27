@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Role - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/admin-role.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Admin Role</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products by name...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Role Content -->
+            <div class="admin-role-content">
+                
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h6>Admin Roles</h6>
+                    <p>Manage access levels and permissions for administrative users</p>
+                </div>
+
+                <div class="role-grid">
+                    
+                    <!-- Left Column - Profile Update -->
+                    <div class="left-column">
+                        
+                        <!-- Profile Update Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h6>Profile Update</h6>
+                                <button class="edit-btn">Edit</button>
+                            </div>
+                            
+                            <div class="profile-info">
+                                <div class="profile-avatar">
+                                    <img src="../assets/pic.jpg" alt="Admin" class="avatar-image">
+                                    <div class="avatar-actions">
+                                        <button class="avatar-btn edit">Edit</button>
+                                        <button class="avatar-btn delete">Delete</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control" value="Rinadmin">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" value="Patel K">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" value="password">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="tel" class="form-control" value="9876543210">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>E-mail</label>
+                                        <input type="email" class="form-control" value="rinadmin@centramart@gmail.com">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input type="date" class="form-control" value="2000-10-12">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Permissions Section -->
+                            <div class="permissions-section">
+                                <h6>Permissions</h6>
+                                
+                                <div class="permissions-grid">
+                                    <div class="permission-group">
+                                        <h6>Order Management</h6>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="view-orders" checked>
+                                            <label for="view-orders">View Orders</label>
+                                        </div>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="update-orders">
+                                            <label for="update-orders">Update Order Status</label>
+                                        </div>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="cancel-orders">
+                                            <label for="cancel-orders">Cancel Orders</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="permission-group">
+                                        <h6>Product Management</h6>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="add-products" checked>
+                                            <label for="add-products">Add Products</label>
+                                        </div>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="edit-products">
+                                            <label for="edit-products">Edit Products</label>
+                                        </div>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="manage-categories">
+                                            <label for="manage-categories">Manage Categories</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="permission-group">
+                                        <h6>Customer Management</h6>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="view-customers" checked>
+                                            <label for="view-customers">View Customers</label>
+                                        </div>
+                                        <div class="permission-item">
+                                            <input type="checkbox" id="view-order-history">
+                                            <label for="view-order-history">View Order History</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Change Password -->
+                    <div class="right-column">
+                        
+                        <!-- Change Password Section -->
+                        <div class="password-section">
+                            <div class="section-header">
+                                <h6>Change Password</h6>
+                                <span class="need-help">Need help?</span>
+                            </div>
+                            
+                            <form class="password-form">
+                                <div class="form-group">
+                                    <label>Current Password</label>
+                                    <input type="password" class="form-control" placeholder="Enter current password">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>New Password</label>
+                                    <input type="password" class="form-control" placeholder="Enter new password">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Repeat Current Password? Click here</label>
+                                    <input type="password" class="form-control" placeholder="Repeat new password">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Re-enter Password</label>
+                                    <input type="password" class="form-control" placeholder="Re-enter new password">
+                                </div>
+                                
+                                <button type="submit" class="save-changes-btn">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/admin-role.js"></script>
+    <script>
+        // Load sidebar
+        fetch('partials/admin-sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-placeholder').innerHTML = data;
+                // Set active page
+                document.querySelector('[data-page="admin-role"]').classList.add('active');
+            });
+    </script>
+</body>
+</html>

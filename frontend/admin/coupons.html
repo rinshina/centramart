@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupons - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/coupons.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Coupons</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products by name...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coupons Content -->
+            <div class="coupons-content">
+                
+                <!-- Coupon Stats -->
+                <div class="coupon-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Active Coupons</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Expired Coupons</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">22</div>
+                        <div class="stat-label">Total Coupons Created</div>
+                    </div>
+                </div>
+
+                <!-- Filters and Add Button -->
+                <div class="filters-section">
+                    <div class="filters-left">
+                        <span>Filter By:</span>
+                        <select class="filter-select">
+                            <option>All Categories</option>
+                            <option>Percentage</option>
+                            <option>Flat</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>All Brands</option>
+                            <option>Samsung</option>
+                            <option>Apple</option>
+                            <option>Sony</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+                    <button class="add-coupon-btn">+ Add Coupon</button>
+                </div>
+
+                <!-- Coupon Tabs -->
+                <div class="coupon-tabs">
+                    <button class="coupon-tab active">All</button>
+                    <button class="coupon-tab">Active</button>
+                    <button class="coupon-tab">Inactive</button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="coupon-search">
+                    <input type="text" placeholder="Search coupon">
+                    <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                </div>
+
+                <!-- Coupons Table -->
+                <div class="coupons-table">
+                    <div class="table-header">
+                        <div class="col-coupon-code">Coupon Code</div>
+                        <div class="col-discount-type">Discount Type</div>
+                        <div class="col-discount-value">Discount Value</div>
+                        <div class="col-expiry-date">Expiry Date</div>
+                        <div class="col-usage-limit">Usage Limit</div>
+                        <div class="col-status">Status</div>
+                        <div class="col-action">Action</div>
+                    </div>
+
+                    <div class="table-row" data-status="active">
+                        <div class="col-coupon-code">WELCOME20</div>
+                        <div class="col-discount-type">Percentage</div>
+                        <div class="col-discount-value">20%</div>
+                        <div class="col-expiry-date">31-12-2025</div>
+                        <div class="col-usage-limit">100</div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn disable">Disable</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-status="active">
+                        <div class="col-coupon-code">FLAT50</div>
+                        <div class="col-discount-type">Flat</div>
+                        <div class="col-discount-value">$50</div>
+                        <div class="col-expiry-date">31-12-2025</div>
+                        <div class="col-usage-limit">200</div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn disable">Disable</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-status="inactive">
+                        <div class="col-coupon-code">SUMMER15</div>
+                        <div class="col-discount-type">Percentage</div>
+                        <div class="col-discount-value">15%</div>
+                        <div class="col-expiry-date">31-12-2025</div>
+                        <div class="col-usage-limit">500</div>
+                        <div class="col-status"><span class="status-badge inactive">Inactive</span></div>
+                        <div class="col-action">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn enable">Enable</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-status="active">
+                        <div class="col-coupon-code">FLAT30</div>
+                        <div class="col-discount-type">Flat</div>
+                        <div class="col-discount-value">30%</div>
+                        <div class="col-expiry-date">31-12-2025</div>
+                        <div class="col-usage-limit">500</div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn disable">Disable</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <div class="pagination-info">
+                        <span>← Previous</span>
+                    </div>
+                    <div class="pagination-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">5</button>
+                        <span>...</span>
+                        <button class="page-btn">24</button>
+                    </div>
+                    <div class="pagination-info">
+                        <span>Next →</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/coupons.js"></script>
+    <script>
+        // Load sidebar
+        fetch('partials/admin-sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-placeholder').innerHTML = data;
+                // Set active page
+                document.querySelector('[data-page="coupons"]').classList.add('active');
+            });
+    </script>
+</body>
+</html>

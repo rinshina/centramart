@@ -32,12 +32,11 @@ function checkLoginAndRedirect(url) {
     }
 }
 
-// Handle login success
+// Handle login success for users
 function handleLoginSuccess() {
     isLoggedIn = true;
-    userName = 'Rinshina';
+    const userName = localStorage.getItem('userName') || 'User';
     localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('userName', 'Rinshina');
     
     const loginBtn = document.querySelector('.login-btn');
     const userGreeting = document.querySelector('.user-greeting');
@@ -76,7 +75,29 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('submit', function(e) {
         if (e.target && e.target.id === 'loginForm') {
             e.preventDefault();
-            handleLoginSuccess();
+            
+            const email = e.target.querySelector('#loginEmail').value;
+            const password = e.target.querySelector('#loginPassword').value;
+            
+            // Admin credentials - redirect to admin dashboard
+            if (email === 'admin@centramart.com' && password === 'admin123') {
+                localStorage.setItem('userType', 'admin');
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userName', 'Admin');
+                alert('Admin login successful! Redirecting to admin dashboard...');
+                setTimeout(() => {
+                    window.location.href = '../admin/dashboard.html';
+                }, 1000);
+            }
+            // User credentials - stay on user side
+            else if (email === 'user@centramart.com' && password === 'user123') {
+                localStorage.setItem('userType', 'user');
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userName', 'Rinshina');
+                handleLoginSuccess();
+            } else {
+                alert('Invalid credentials!\n\nUser Login:\nEmail: user@centramart.com\nPassword: user123\n\nAdmin Login:\nEmail: admin@centramart.com\nPassword: admin123');
+            }
         }
     });
     

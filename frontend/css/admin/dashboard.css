@@ -27,6 +27,14 @@ body {
     padding: 0 1.5rem 1rem;
     border-bottom: 1px solid #e0e0e0;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.sidebar-header img {
+    height: 28px;
+    width: auto;
 }
 
 .sidebar-header h4 {
@@ -288,13 +296,20 @@ body {
 }
 
 .chart-placeholder {
-    height: 200px;
+    height: auto;
     background: #f8f9fa;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #999;
+    padding: 1rem;
+}
+
+.chart-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
 }
 
 /* Responsive */
@@ -319,4 +334,59 @@ body {
     .topbar-right .search-box input {
         width: 200px;
     }
+}
+
+/* Admin Profile Section */
+.admin-profile-section {
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+    margin-top: auto;
+}
+
+.admin-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.admin-profile-card img {
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.admin-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.admin-email {
+    font-size: 0.8rem;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.logout-btn:hover {
+    background: #e9ecef;
 }

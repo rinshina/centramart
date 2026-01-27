@@ -1,1 +1,389 @@
-<!-- Admin Settings - To be implemented -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Settings - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/settings.css">
+    <link rel="stylesheet" href="../css/admin/responsive.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>System Settings</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search settings...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                
+                <!-- Settings Navigation -->
+                <div class="settings-nav">
+                    <button class="settings-tab active" data-tab="general">General</button>
+                    <button class="settings-tab" data-tab="payment">Payment</button>
+                    <button class="settings-tab" data-tab="shipping">Shipping</button>
+                    <button class="settings-tab" data-tab="email">Email</button>
+                    <button class="settings-tab" data-tab="security">Security</button>
+                </div>
+
+                <!-- General Settings -->
+                <div class="settings-panel active" id="general">
+                    <h6>General Settings</h6>
+                    
+                    <div class="settings-section">
+                        <h6>Store Information</h6>
+                        
+                        <div class="form-group">
+                            <label>Store Name</label>
+                            <input type="text" class="form-control" value="CentraMart">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Store Description</label>
+                            <textarea class="form-control" rows="3">Your one-stop destination for electronics and home appliances</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Store Email</label>
+                            <input type="email" class="form-control" value="admin@centramart.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Store Phone</label>
+                            <input type="tel" class="form-control" value="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Store Address</label>
+                            <textarea class="form-control" rows="3">123 Business Street, Suite 100, New York, NY 10001</textarea>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h6>Currency & Localization</h6>
+                        
+                        <div class="form-group">
+                            <label>Default Currency</label>
+                            <select class="form-control">
+                                <option value="USD" selected>USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                                <option value="INR">INR (₹)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Timezone</label>
+                            <select class="form-control">
+                                <option value="UTC" selected>UTC</option>
+                                <option value="EST">Eastern Time</option>
+                                <option value="PST">Pacific Time</option>
+                                <option value="IST">India Standard Time</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Date Format</label>
+                            <select class="form-control">
+                                <option value="MM/DD/YYYY" selected>MM/DD/YYYY</option>
+                                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Settings -->
+                <div class="settings-panel" id="payment">
+                    <h6>Payment Settings</h6>
+                    
+                    <div class="settings-section">
+                        <h6>Payment Methods</h6>
+                        
+                        <div class="payment-method-toggle">
+                            <div class="method-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Credit/Debit Cards</span>
+                            </div>
+                            
+                            <div class="method-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>PayPal</span>
+                            </div>
+                            
+                            <div class="method-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Cash on Delivery</span>
+                            </div>
+                            
+                            <div class="method-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Bank Transfer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h6>Payment Gateway Configuration</h6>
+                        
+                        <div class="form-group">
+                            <label>Stripe Public Key</label>
+                            <input type="text" class="form-control" placeholder="pk_test_...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Stripe Secret Key</label>
+                            <input type="password" class="form-control" placeholder="sk_test_...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>PayPal Client ID</label>
+                            <input type="text" class="form-control" placeholder="PayPal Client ID">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Settings -->
+                <div class="settings-panel" id="shipping">
+                    <h6>Shipping Settings</h6>
+                    
+                    <div class="settings-section">
+                        <h6>Shipping Options</h6>
+                        
+                        <div class="shipping-method">
+                            <div class="method-header">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Standard Shipping</span>
+                            </div>
+                            <div class="method-details">
+                                <div class="form-group">
+                                    <label>Rate</label>
+                                    <input type="number" class="form-control" value="5.99">
+                                </div>
+                                <div class="form-group">
+                                    <label>Delivery Time</label>
+                                    <input type="text" class="form-control" value="5-7 business days">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shipping-method">
+                            <div class="method-header">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Express Shipping</span>
+                            </div>
+                            <div class="method-details">
+                                <div class="form-group">
+                                    <label>Rate</label>
+                                    <input type="number" class="form-control" value="15.99">
+                                </div>
+                                <div class="form-group">
+                                    <label>Delivery Time</label>
+                                    <input type="text" class="form-control" value="2-3 business days">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shipping-method">
+                            <div class="method-header">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Free Shipping</span>
+                            </div>
+                            <div class="method-details">
+                                <div class="form-group">
+                                    <label>Minimum Order Amount</label>
+                                    <input type="number" class="form-control" value="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Settings -->
+                <div class="settings-panel" id="email">
+                    <h6>Email Settings</h6>
+                    
+                    <div class="settings-section">
+                        <h6>SMTP Configuration</h6>
+                        
+                        <div class="form-group">
+                            <label>SMTP Host</label>
+                            <input type="text" class="form-control" placeholder="smtp.gmail.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>SMTP Port</label>
+                            <input type="number" class="form-control" value="587">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>SMTP Username</label>
+                            <input type="email" class="form-control" placeholder="your-email@gmail.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>SMTP Password</label>
+                            <input type="password" class="form-control" placeholder="App Password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span>Enable SSL/TLS</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h6>Email Templates</h6>
+                        
+                        <div class="email-template-toggle">
+                            <div class="template-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Order Confirmation</span>
+                            </div>
+                            
+                            <div class="template-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Shipping Notification</span>
+                            </div>
+                            
+                            <div class="template-item">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Newsletter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="settings-panel" id="security">
+                    <h6>Security Settings</h6>
+                    
+                    <div class="settings-section">
+                        <h6>Authentication</h6>
+                        
+                        <div class="form-group">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span>Two-Factor Authentication</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Session Timeout (minutes)</label>
+                            <input type="number" class="form-control" value="30">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Maximum Login Attempts</label>
+                            <input type="number" class="form-control" value="5">
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h6>Data Protection</h6>
+                        
+                        <div class="form-group">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                            <span>Enable SSL/HTTPS</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span>Enable Data Backup</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Backup Frequency</label>
+                            <select class="form-control">
+                                <option value="daily">Daily</option>
+                                <option value="weekly" selected>Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="settings-actions">
+                    <button class="btn btn-save">Save Changes</button>
+                    <button class="btn btn-reset">Reset to Default</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/settings.js"></script>
+    <script>
+        loadAdminSidebar('settings');
+    </script>
+</body>
+</html>

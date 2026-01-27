@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/order-detail.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Order Management</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search data, users, or reports...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Detail Content -->
+            <div class="order-detail-content">
+                
+                <!-- Breadcrumb -->
+                <div class="breadcrumb-nav">
+                    <span>Orders</span> → <span>Orders</span> → <span class="current">Order Details</span>
+                </div>
+
+                <!-- Header with Back Button -->
+                <div class="detail-header">
+                    <h6>Order List</h6>
+                    <button class="back-btn" onclick="window.location.href='orders.html'">← Back to Orders</button>
+                </div>
+
+                <!-- Order Info Cards -->
+                <div class="order-info-cards">
+                    <div class="info-card">
+                        <label>Order Id:</label>
+                        <span id="order-id">ORD-10021</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Order Date:</label>
+                        <span id="order-date">01-01-2025</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Order Status:</label>
+                        <span id="order-status" class="status-badge shipped">📦 Shipped</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Payment Status:</label>
+                        <span id="payment-status" class="payment-badge paid">Paid</span>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="detail-grid">
+                    
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        
+                        <!-- Delivery Address -->
+                        <div class="detail-section">
+                            <h6>Delivery Address</h6>
+                            <div class="address-info">
+                                <div class="customer-name">Rajesh Kumar</div>
+                                <div class="customer-phone">+91 98765 43210</div>
+                                <div class="customer-email">rahul.k@example.com</div>
+                                <div class="customer-address">
+                                    123, Sunrise Apartments<br>
+                                    MG Road, Sector 14<br>
+                                    Mumbai, Maharashtra - 400001<br>
+                                    India
+                                </div>
+                            </div>
+                            <div class="customer-id">Customer Id: CUST-00123</div>
+                        </div>
+
+                        <!-- Price Summary -->
+                        <div class="detail-section">
+                            <h6>Price Summary</h6>
+                            <div class="price-breakdown">
+                                <div class="price-row">
+                                    <span>Sub Total</span>
+                                    <span>$4699.99</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Shipping</span>
+                                    <span>Free</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Discount</span>
+                                    <span>$100</span>
+                                </div>
+                                <div class="price-row subtotal">
+                                    <span>Sub Total</span>
+                                    <span>$4599.99</span>
+                                </div>
+                                <div class="price-row total">
+                                    <span>Total Paid</span>
+                                    <span>$4599.99 USD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        
+                        <!-- Ordered Items -->
+                        <div class="detail-section">
+                            <h6>Ordered Items (2)</h6>
+                            <div class="items-list">
+                                <div class="item">
+                                    <img src="../assets/products/Sony PlayStation PS5 Standard Console (CFI2116A01Y).png" alt="Product" class="item-image">
+                                    <div class="item-details">
+                                        <div class="item-name">Sony PlayStation PS5 Standard Console</div>
+                                        <div class="item-price">$499</div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="../assets/products/laptops/Apple MacBook Air (2025) 13-inch M4 chip with 10-core CPU and 8-core .png" alt="Product" class="item-image">
+                                    <div class="item-details">
+                                        <div class="item-name">Apple MacBook Air M4 13-inch 10-core CPU</div>
+                                        <div class="item-price">$1299</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Status Timeline -->
+                        <div class="detail-section">
+                            <div class="status-timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-icon">✓</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Order Placed</div>
+                                        <div class="timeline-date">Mon, 01 Jan 2025</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed">
+                                    <div class="timeline-icon">✓</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Packaging</div>
+                                        <div class="timeline-date">Tue, 02 Jan 2025</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item active">
+                                    <div class="timeline-icon">🚚</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">On The Road</div>
+                                        <div class="timeline-date">Wed, 03 Jan 2025</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon">📦</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Delivered</div>
+                                        <div class="timeline-date">Thu, 04 Jan 2025</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/order-detail.js"></script>
+</body>
+</html>

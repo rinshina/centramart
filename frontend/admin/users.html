@@ -1,1 +1,153 @@
-<!-- Admin Users Management - To be implemented -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/customers.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>User Management</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search users...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Content -->
+            <div class="customers-content">
+                
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h6>Admin Users</h6>
+                    <p>Manage admin users and their access permissions</p>
+                </div>
+
+                <!-- User Stats -->
+                <div class="customer-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Total Admins</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Inactive</div>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Active</button>
+                    <button class="filter-tab">Inactive</button>
+                </div>
+
+                <!-- Add User Button -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="customer-count">
+                        <span>8 Admin Users</span>
+                    </div>
+                    <button class="btn btn-dark">+ Add New Admin</button>
+                </div>
+
+                <!-- Users Table -->
+                <div class="customers-table">
+                    <div class="table-header">
+                        <div class="col-customer-id">USER ID</div>
+                        <div class="col-name">NAME</div>
+                        <div class="col-email">EMAIL</div>
+                        <div class="col-orders">ROLE</div>
+                        <div class="col-status">STATUS</div>
+                        <div class="col-action">ACTION</div>
+                    </div>
+
+                    <div class="table-row" data-status="active">
+                        <div class="col-customer-id">ADM-001</div>
+                        <div class="col-name">John Admin</div>
+                        <div class="col-email">john@centramart.com</div>
+                        <div class="col-orders">Super Admin</div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action"><button class="view-btn">👁 Edit User</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="active">
+                        <div class="col-customer-id">ADM-002</div>
+                        <div class="col-name">Sarah Manager</div>
+                        <div class="col-email">sarah@centramart.com</div>
+                        <div class="col-orders">Manager</div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action"><button class="view-btn">👁 Edit User</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="inactive">
+                        <div class="col-customer-id">ADM-003</div>
+                        <div class="col-name">Mike Support</div>
+                        <div class="col-email">mike@centramart.com</div>
+                        <div class="col-orders">Support</div>
+                        <div class="col-status"><span class="status-badge inactive">Inactive</span></div>
+                        <div class="col-action"><button class="view-btn">👁 Edit User</button></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load sidebar
+        fetch('partials/admin-sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-placeholder').innerHTML = data;
+            });
+            
+        // Filter functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.textContent.toLowerCase();
+                document.querySelectorAll('.table-row').forEach(row => {
+                    if (filter === 'all' || row.dataset.status === filter) {
+                        row.style.display = 'grid';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

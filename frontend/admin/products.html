@@ -1,1 +1,230 @@
-<!-- Admin Products Management - To be implemented -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/products.css">
+    <link rel="stylesheet" href="../css/admin/responsive.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Products</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products by name...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Content -->
+            <div class="products-content">
+                
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h6>Products</h6>
+                    <p>Manage the product catalog, pricing, and availability</p>
+                </div>
+
+                <!-- Product Stats -->
+                <div class="product-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><img src="../assets/icons/products.png" alt="products" width="30" height="30"></div>
+                        <div class="stat-number">320</div>
+                        <div class="stat-label">Total Products</div>
+                        
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><img src="../assets/icons/active products.png" alt="products" width="30" height="30"></div>
+                        <div class="stat-number">298</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><img src="../assets/icons/atttention.png" alt="products" width="30" height="30"></div>
+                        <div class="stat-number">22</div>
+                        <div class="stat-label">Inactive</div>
+                    </div>
+                </div>
+
+                <!-- Filters and Add Button -->
+                <div class="filters-section">
+                    <div class="filters-left">
+                        <span>Filter by:</span>
+                        <select class="filter-select">
+                            <option>All Categories</option>
+                            <option>Mobiles</option>
+                            <option>Laptops</option>
+                            <option>Home Appliances</option>
+                            <option>Personal Care</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>All Brands</option>
+                            <option>Samsung</option>
+                            <option>Apple</option>
+                            <option>Sony</option>
+                            <option>LG</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+                    <button class="add-product-btn" onclick="window.location.href='add-product.html'">+ Add Product</button>
+                </div>
+
+                <!-- Product Tabs -->
+                <div class="product-tabs">
+                    <button class="product-tab active">All Product (345)</button>
+                    <button class="product-tab">Featured Products</button>
+                    <button class="product-tab">On Sale</button>
+                    <button class="product-tab">Out of Stock</button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="product-search">
+                    <input type="text" placeholder="Search your product">
+                    <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                </div>
+
+                <!-- Products Table -->
+                <div class="products-table">
+                    <div class="table-header">
+                        <div class="col-product">Product</div>
+                        <div class="col-category">Category</div>
+                        <div class="col-price">Price</div>
+                        <div class="col-stock">Stock Status</div>
+                        <div class="col-status">Status</div>
+                        <div class="col-action">Action</div>
+                    </div>
+
+                    <div class="table-row" data-category="mobiles" data-status="active">
+                        <div class="col-product">
+                            <img src="../assets/products/mobiles/Samsung Galaxy S24 Ultra 5G Smartphone, Black, 256 GB.png" alt="Product" class="product-image">
+                            <span>Samsung Galaxy S24 Ultra 5G Smartphone</span>
+                        </div>
+                        <div class="col-category">Mobiles</div>
+                        <div class="col-price">$2000</div>
+                        <div class="col-stock"><span class="stock-badge in-stock">In Stock</span></div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-icon" onclick="window.location.href='add-product.html'">👁</button>
+                            <button class="action-icon">🗑</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-category="home-appliances" data-status="active">
+                        <div class="col-product">
+                            <img src="../assets/products/Samsung Front Load Washer Dryer.webp" alt="Product" class="product-image">
+                            <span>Samsung Front Load Washer Dryer</span>
+                        </div>
+                        <div class="col-category">Washing Machines</div>
+                        <div class="col-price">$2000</div>
+                        <div class="col-stock"><span class="stock-badge low-stock">Low Stock</span></div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-icon">👁</button>
+                            <button class="action-icon">🗑</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-category="home-appliances" data-status="active">
+                        <div class="col-product">
+                            <img src="../assets/products/Smeg Single Door Refrigerator 38 Liters - Pastel Blue (FAB5RPB3GA).png" alt="Product" class="product-image">
+                            <span>Smeg Single Door Refrigerator</span>
+                        </div>
+                        <div class="col-category">Refrigerators</div>
+                        <div class="col-price">$2000</div>
+                        <div class="col-stock"><span class="stock-badge in-stock">In Stock</span></div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-icon">👁</button>
+                            <button class="action-icon">🗑</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-category="laptops" data-status="active">
+                        <div class="col-product">
+                            <img src="../assets/products/laptops/Apple MacBook Air (2025) 13-inch M4 chip with 10-core CPU and 8-core .png" alt="Product" class="product-image">
+                            <span>Apple MacBook Air M4 13-inch</span>
+                        </div>
+                        <div class="col-category">Laptops</div>
+                        <div class="col-price">$2000</div>
+                        <div class="col-stock"><span class="stock-badge out-of-stock">Out of Stock</span></div>
+                        <div class="col-status"><span class="status-badge inactive">Inactive</span></div>
+                        <div class="col-action">
+                            <button class="action-icon">👁</button>
+                            <button class="action-icon">🗑</button>
+                        </div>
+                    </div>
+
+                    <div class="table-row" data-category="personal-care" data-status="active">
+                        <div class="col-product">
+                            <img src="../assets/products/personal-care/Wahl Pure Confidence Lady Grooming Kit (09865-127).png" alt="Product" class="product-image">
+                            <span>Wahl Pure Confidence Lady Grooming Kit</span>
+                        </div>
+                        <div class="col-category">Personal Care</div>
+                        <div class="col-price">$2000</div>
+                        <div class="col-stock"><span class="stock-badge in-stock">In Stock</span></div>
+                        <div class="col-status"><span class="status-badge active">Active</span></div>
+                        <div class="col-action">
+                            <button class="action-icon">👁</button>
+                            <button class="action-icon">🗑</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <div class="pagination-info">
+                        <span>← Previous</span>
+                    </div>
+                    <div class="pagination-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">5</button>
+                        <span>...</span>
+                        <button class="page-btn">24</button>
+                    </div>
+                    <div class="pagination-info">
+                        <span>Next →</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/products.js"></script>
+    <script>
+        loadAdminSidebar('products');
+    </script>
+</body>
+</html>

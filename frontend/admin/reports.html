@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Reports - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/reports.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Sales & Reports</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products by name...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Content -->
+            <div class="reports-content">
+                
+                <!-- Report Type Section -->
+                <div class="report-type-section">
+                    <h6>Report Type</h6>
+                    <div class="report-type-buttons">
+                        <button class="report-type-btn active">Sales Summary</button>
+                        <button class="report-type-btn">Best Selling Products</button>
+                        <button class="report-type-btn">Category Wise Sales Report</button>
+                        <button class="report-type-btn">Monthly / Weekly Report</button>
+                    </div>
+                </div>
+
+                <!-- Report Filters -->
+                <div class="report-filters-section">
+                    <h6>Report Filters</h6>
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <label>From</label>
+                            <input type="date" class="filter-input" value="2024-01-01">
+                        </div>
+                        <div class="filter-group">
+                            <label>To</label>
+                            <input type="date" class="filter-input" value="2024-12-31">
+                        </div>
+                        <button class="generate-report-btn">Generate Report</button>
+                    </div>
+                </div>
+
+                <!-- Report Stats -->
+                <div class="report-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$5,020.97</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Best Seller</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Returned Orders</div>
+                    </div>
+                </div>
+
+                <!-- Report Details -->
+                <div class="report-details-section">
+                    <div class="section-header">
+                        <h6>Report Details</h6>
+                        <div class="export-buttons">
+                            <button class="export-btn csv">Download as csv</button>
+                            <button class="export-btn pdf">Download as PDF</button>
+                        </div>
+                    </div>
+
+                    <!-- Report Table -->
+                    <div class="report-table">
+                        <div class="table-header">
+                            <div class="col-date">Date</div>
+                            <div class="col-order-id">Order ID</div>
+                            <div class="col-customer">Customer</div>
+                            <div class="col-amount">Order Amount</div>
+                            <div class="col-status">Order Status</div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-date">01-01-2024</div>
+                            <div class="col-order-id">ORD-10021</div>
+                            <div class="col-customer">John Doe</div>
+                            <div class="col-amount">$1200</div>
+                            <div class="col-status"><span class="status-badge completed">Completed</span></div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-date">01-02-2024</div>
+                            <div class="col-order-id">ORD-10022</div>
+                            <div class="col-customer">John Doe</div>
+                            <div class="col-amount">$1200</div>
+                            <div class="col-status"><span class="status-badge completed">Completed</span></div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-date">01-03-2024</div>
+                            <div class="col-order-id">ORD-10023</div>
+                            <div class="col-customer">John Doe</div>
+                            <div class="col-amount">$1200</div>
+                            <div class="col-status"><span class="status-badge completed">Completed</span></div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-date">01-04-2024</div>
+                            <div class="col-order-id">ORD-10024</div>
+                            <div class="col-customer">John Doe</div>
+                            <div class="col-amount">$1200</div>
+                            <div class="col-status"><span class="status-badge completed">Completed</span></div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="col-date">01-05-2024</div>
+                            <div class="col-order-id">ORD-10025</div>
+                            <div class="col-customer">John Doe</div>
+                            <div class="col-amount">$1200</div>
+                            <div class="col-status"><span class="status-badge completed">Completed</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/reports.js"></script>
+    <script>
+        // Load sidebar
+        fetch('partials/admin-sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-placeholder').innerHTML = data;
+                // Set active page
+                document.querySelector('[data-page="reports"]').classList.add('active');
+            });
+    </script>
+</body>
+</html>

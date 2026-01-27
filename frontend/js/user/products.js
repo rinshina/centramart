@@ -4,10 +4,39 @@ let filteredProducts = [...products];
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
+    // Check URL parameters for filtering
+    const urlParams = new URLSearchParams(window.location.search);
+    const filter = urlParams.get('filter');
+    
+    if (filter) {
+        applyUrlFilter(filter);
+    }
+    
     setupFilters();
     renderProducts();
     updatePaginationForProducts();
 });
+
+function applyUrlFilter(filter) {
+    const filterMap = {
+        'new-arrivals': 'New Arrivals',
+        'best-sellers': 'Best Sellers', 
+        'hot-deals': 'Hot Deals'
+    };
+    
+    if (filterMap[filter]) {
+        // Update page title
+        document.title = `${filterMap[filter]} - CentraMart`;
+        
+        // Filter products based on the parameter
+        filteredProducts = products.filter(product => {
+            if (filter === 'new-arrivals') return product.isNew;
+            if (filter === 'best-sellers') return product.isBestSeller;
+            if (filter === 'hot-deals') return product.onSale;
+            return true;
+        });
+    }
+}
 
 // Setup filter event listeners
 function setupFilters() {

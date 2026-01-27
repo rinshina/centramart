@@ -1,1 +1,285 @@
-<!-- Admin Orders Management - To be implemented -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/orders.css">
+    <link rel="stylesheet" href="../css/admin/responsive.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Order Management</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search data, users, or reports...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Content -->
+            <div class="orders-content">
+                
+                <!-- Order List Header -->
+                <div class="orders-header">
+                    <div class="orders-title">
+                        <h6>Order List</h6>
+                        <p>Overview of all customer orders and their current status</p>
+                    </div>
+                    <div class="more-actions">
+                        <span>More Action</span>
+                        <span class="more-btn">⋯</span>
+                    </div>
+                </div>
+
+                <!-- Order Stats -->
+                <div class="order-stats">
+                    <div class="order-stat">
+                        <div class="stat-icon">
+                            <img src="../assets/icons/orders.png" alt="total orders" width="32" height="32">
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">1,240</div>
+                            <div class="stat-label">Total Orders</div>
+                            <div class="stat-period">Last 7 days</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-stat">
+                        <div class="stat-icon">
+                            <img src="../assets/icons/time.png" alt="total orders" width="32" height="32">
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">240</div>
+                            <div class="stat-label">Orders in Processing</div>
+                            <div class="stat-period">Currently Active</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-stat">
+                        <div class="stat-icon">
+                            <img src="../assets/icons/completed.png" alt="total orders" width="32" height="32">
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">960</div>
+                            <div class="stat-label">Completed Orders</div>
+                            <div class="stat-period">Last 7 days</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-stat">
+                        <div class="stat-icon">
+                            <img src="../assets/icons/atttention.png" alt="total orders" width="32" height="32">
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">87</div>
+                            <div class="stat-label">Attention Required</div>
+                            <div class="stat-period">Needs Review</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs and Search -->
+                <div class="filter-search-container">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">All order (240)</button>
+                        <button class="filter-tab">Processing</button>
+                        <button class="filter-tab">Completed</button>
+                        <button class="filter-tab">Attention Required</button>
+                    </div>
+                    <div class="search-control">
+                        <input type="text" placeholder="Search by order ID or customer">
+                        <button><img src="../assets/icons/search icon.png" alt="search icon" width="20" height="20"></button>
+                    </div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="orders-table">
+                    <div class="table-header">
+                        <div class="col-no">No.</div>
+                        <div class="col-order-id">Order ID</div>
+                        <div class="col-customer">Customer</div>
+                        <div class="col-items">Items</div>
+                        <div class="col-date">Order Date</div>
+                        <div class="col-payment">Payment</div>
+                        <div class="col-status">Order Status</div>
+                        <div class="col-action">Action</div>
+                    </div>
+
+                    <div class="table-row" data-status="delivered">
+                        <div class="col-no">1</div>
+                        <div class="col-order-id">ORD-10021</div>
+                        <div class="col-customer">rahul@***</div>
+                        <div class="col-items">3</div>
+                        <div class="col-date">01-01-2025</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status delivered">📦 Delivered</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="processing">
+                        <div class="col-no">2</div>
+                        <div class="col-order-id">ORD-10022</div>
+                        <div class="col-customer">alisha.m@***</div>
+                        <div class="col-items">3</div>
+                        <div class="col-date">01-01-2025</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status shipped">📦 Shipped</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="processing">
+                        <div class="col-no">3</div>
+                        <div class="col-order-id">ORD-10023</div>
+                        <div class="col-customer">john.d@***</div>
+                        <div class="col-items">2</div>
+                        <div class="col-date">01-01-2025</div>
+                        <div class="col-payment"><span class="payment-status unpaid">● Unpaid</span></div>
+                        <div class="col-status"><span class="order-status shipped">📦 Shipped</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="attention">
+                        <div class="col-no">4</div>
+                        <div class="col-order-id">ORD-10024</div>
+                        <div class="col-customer">sarah.k@***</div>
+                        <div class="col-items">1</div>
+                        <div class="col-date">01-01-2025</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status pending">⏳ Pending</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="attention">
+                        <div class="col-no">5</div>
+                        <div class="col-order-id">ORD-10025</div>
+                        <div class="col-customer">mike.r@***</div>
+                        <div class="col-items">4</div>
+                        <div class="col-date">01-01-2025</div>
+                        <div class="col-payment"><span class="payment-status unpaid">● Unpaid</span></div>
+                        <div class="col-status"><span class="order-status cancelled">❌ Cancelled</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="delivered">
+                        <div class="col-no">6</div>
+                        <div class="col-order-id">ORD-10026</div>
+                        <div class="col-customer">emma.w@***</div>
+                        <div class="col-items">2</div>
+                        <div class="col-date">31-12-2024</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status delivered">📦 Delivered</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="processing">
+                        <div class="col-no">7</div>
+                        <div class="col-order-id">ORD-10027</div>
+                        <div class="col-customer">david.l@***</div>
+                        <div class="col-items">5</div>
+                        <div class="col-date">31-12-2024</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status shipped">📦 Shipped</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="delivered">
+                        <div class="col-no">8</div>
+                        <div class="col-order-id">ORD-10028</div>
+                        <div class="col-customer">lisa.p@***</div>
+                        <div class="col-items">1</div>
+                        <div class="col-date">30-12-2024</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status delivered">📦 Delivered</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="attention">
+                        <div class="col-no">9</div>
+                        <div class="col-order-id">ORD-10029</div>
+                        <div class="col-customer">tom.h@***</div>
+                        <div class="col-items">3</div>
+                        <div class="col-date">30-12-2024</div>
+                        <div class="col-payment"><span class="payment-status unpaid">● Unpaid</span></div>
+                        <div class="col-status"><span class="order-status pending">⏳ Pending</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="processing">
+                        <div class="col-no">10</div>
+                        <div class="col-order-id">ORD-10030</div>
+                        <div class="col-customer">anna.s@***</div>
+                        <div class="col-items">2</div>
+                        <div class="col-date">29-12-2024</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status shipped">📦 Shipped</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="delivered">
+                        <div class="col-no">11</div>
+                        <div class="col-order-id">ORD-10031</div>
+                        <div class="col-customer">chris.b@***</div>
+                        <div class="col-items">4</div>
+                        <div class="col-date">29-12-2024</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status delivered">📦 Delivered</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+
+                    <div class="table-row" data-status="attention">
+                        <div class="col-no">12</div>
+                        <div class="col-order-id">ORD-10032</div>
+                        <div class="col-customer">nina.g@***</div>
+                        <div class="col-items">1</div>
+                        <div class="col-date">28-12-2024</div>
+                        <div class="col-payment"><span class="payment-status paid">● Paid</span></div>
+                        <div class="col-status"><span class="order-status cancelled">❌ Cancelled</span></div>
+                        <div class="col-action"><button class="view-btn">👁 View</button></div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <div class="pagination-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/orders.js"></script>
+    <script>
+        loadAdminSidebar('orders');
+    </script>
+</body>
+</html>

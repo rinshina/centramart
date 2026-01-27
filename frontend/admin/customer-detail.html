@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details - CentraMart Admin</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="../css/admin/customer-detail.css">
+</head>
+<body>
+    <div class="admin-layout">
+        
+        <!-- Sidebar -->
+        <div id="sidebar-placeholder"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <h5>Customers</h5>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search data, users, or reports...">
+                        <button><img src="../assets/icons/search icon.png" width="16" height="16"></button>
+                    </div>
+                    <div class="notifications"><img src="../assets/icons/notifications.png" width="20" height="20"></div>
+                    <div class="admin-profile">
+                        <img src="../assets/pic.jpg" alt="Admin" width="32" height="32">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Detail Content -->
+            <div class="customer-detail-content">
+                
+                <!-- Header -->
+                <div class="detail-header">
+                    <button class="back-btn" onclick="window.location.href='customers.html'">←</button>
+                    <div class="header-info">
+                        <h6>Customer Details</h6>
+                        <span class="customer-id">CUST-10621</span>
+                    </div>
+                </div>
+
+                <!-- Customer Stats -->
+                <div class="customer-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Orders</div>
+                        <div class="stat-number">12</div>
+                        <div class="stat-icon blue">📦</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Spent</div>
+                        <div class="stat-number">$3,456.00</div>
+                        <div class="stat-icon green">💰</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Member Since</div>
+                        <div class="stat-number">Jan 15, 2024</div>
+                        <div class="stat-icon purple">📅</div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="detail-grid">
+                    
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        
+                        <!-- Profile Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h6>Profile</h6>
+                                <button class="edit-btn">✏️</button>
+                            </div>
+                            
+                            <div class="profile-info">
+                                <div class="profile-avatar">
+                                    <img src="../assets/pic.jpg" alt="Customer" class="avatar-image">
+                                </div>
+                                <div class="profile-details">
+                                    <div class="customer-name">Ayesha Sallu</div>
+                                    <div class="customer-status active">Active</div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-details">
+                                        <div class="contact-label">Email</div>
+                                        <div class="contact-value">ayesha@example.com</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-details">
+                                        <div class="contact-label">Phone</div>
+                                        <div class="contact-value">+1 (555) 123-4567</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-details">
+                                        <div class="contact-label">Address</div>
+                                        <div class="contact-value">123 Main Street, Apt 4B, New York, NY 10001</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Actions -->
+                        <div class="account-actions">
+                            <h6>Account Actions</h6>
+                            <div class="action-buttons">
+                                <button class="action-btn primary">Send Email</button>
+                                <button class="action-btn secondary">Edit Customer</button>
+                                <button class="action-btn danger">Suspend Account</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        
+                        <!-- Order History -->
+                        <div class="order-history">
+                            <h6>Order History</h6>
+                            
+                            <div class="orders-table">
+                                <div class="table-header">
+                                    <div class="col-order-id">ORDER ID</div>
+                                    <div class="col-date">DATE</div>
+                                    <div class="col-items">ITEMS</div>
+                                    <div class="col-total">TOTAL</div>
+                                    <div class="col-status">STATUS</div>
+                                    <div class="col-action">ACTION</div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="col-order-id">ORD-2024-001</div>
+                                    <div class="col-date">Jan 25, 2026</div>
+                                    <div class="col-items">3 items</div>
+                                    <div class="col-total">$299.99</div>
+                                    <div class="col-status"><span class="status-badge delivered">Delivered</span></div>
+                                    <div class="col-action"><button class="view-order-btn">View Order</button></div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="col-order-id">ORD-2024-002</div>
+                                    <div class="col-date">Jan 20, 2026</div>
+                                    <div class="col-items">2 items</div>
+                                    <div class="col-total">$549.50</div>
+                                    <div class="col-status"><span class="status-badge delivered">Delivered</span></div>
+                                    <div class="col-action"><button class="view-order-btn">View Order</button></div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="col-order-id">ORD-2024-003</div>
+                                    <div class="col-date">Jan 18, 2026</div>
+                                    <div class="col-items">1 items</div>
+                                    <div class="col-total">$899.99</div>
+                                    <div class="col-status"><span class="status-badge active">Active</span></div>
+                                    <div class="col-action"><button class="view-order-btn">View Order</button></div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="col-order-id">ORD-2024-004</div>
+                                    <div class="col-date">Jan 10, 2026</div>
+                                    <div class="col-items">4 items</div>
+                                    <div class="col-total">$199.00</div>
+                                    <div class="col-status"><span class="status-badge delivered">Delivered</span></div>
+                                    <div class="col-action"><button class="view-order-btn">View Order</button></div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="col-order-id">ORD-2024-005</div>
+                                    <div class="col-date">Jan 5, 2026</div>
+                                    <div class="col-items">5 items</div>
+                                    <div class="col-total">$1,507.52</div>
+                                    <div class="col-status"><span class="status-badge delivered">Delivered</span></div>
+                                    <div class="col-action"><button class="view-order-btn">View Order</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Send Email Modal -->
+    <div class="modal fade" id="sendEmailModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Send Email to Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">To:</label>
+                            <input type="email" class="form-control" value="ayesha@example.com" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Subject:</label>
+                            <input type="text" class="form-control" placeholder="Enter subject">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message:</label>
+                            <textarea class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Customer Modal -->
+    <div class="modal fade" id="editCustomerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Customer Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Full Name:</label>
+                                <input type="text" class="form-control" value="Ayesha Sallu">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Status:</label>
+                                <select class="form-control">
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email:</label>
+                                <input type="email" class="form-control" value="ayesha@example.com">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Phone:</label>
+                                <input type="tel" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address:</label>
+                            <textarea class="form-control" rows="3">123 Main Street, Apt 4B, New York, NY 10001</textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Suspend Account Modal -->
+    <div class="modal fade" id="suspendAccountModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Suspend Customer Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <strong>Warning!</strong> This action will suspend the customer's account.
+                    </div>
+                    <p>Are you sure you want to suspend <strong>Ayesha Sallu's</strong> account?</p>
+                    <div class="mb-3">
+                        <label class="form-label">Reason for suspension:</label>
+                        <select class="form-control">
+                            <option>Violation of terms</option>
+                            <option>Fraudulent activity</option>
+                            <option>Payment issues</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Additional notes:</label>
+                        <textarea class="form-control" rows="3" placeholder="Optional notes"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger">Suspend Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/customer-detail.js"></script>
+</body>
+</html>
