@@ -7,15 +7,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check URL parameters for filtering
     const urlParams = new URLSearchParams(window.location.search);
     const filter = urlParams.get('filter');
+    const category = urlParams.get('category');
     
     if (filter) {
         applyUrlFilter(filter);
+    }
+    
+    if (category) {
+        applyCategoryFilter(category);
     }
     
     setupFilters();
     renderProducts();
     updatePaginationForProducts();
 });
+
+function applyCategoryFilter(category) {
+    // Update page title and breadcrumb
+    const categoryNames = {
+        'laptops': 'Laptops',
+        'mobiles': 'Mobiles', 
+        'personal-care': 'Personal Care',
+        'home-appliances': 'Home Appliances',
+        'cameras': 'Cameras',
+        'gaming': 'Gaming',
+        'accessories': 'Accessories'
+    };
+    
+    const categoryName = categoryNames[category] || category;
+    document.title = `${categoryName} - CentraMart`;
+    
+    // Update breadcrumb
+    const breadcrumb = document.querySelector('.breadcrumb');
+    if (breadcrumb) {
+        breadcrumb.innerHTML = `
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">${categoryName}</li>
+        `;
+    }
+    
+    // Filter products by category
+    filteredProducts = products.filter(product => product.category === category);
+}
 
 function applyUrlFilter(filter) {
     const filterMap = {
@@ -304,4 +337,64 @@ function updatePaginationForProducts() {
 // Initialize pagination when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(initializePagination, 100); // Small delay to ensure pagination HTML is loaded
+});
+
+// Mobile Filter Modal
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+    const mobileFilterModal = document.getElementById('mobileFilterModal');
+    const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
+    const closeMobileFilter = document.getElementById('closeMobileFilter');
+    const applyMobileFilters = document.getElementById('applyMobileFilters');
+    const clearMobileFilters = document.getElementById('clearMobileFilters');
+
+    // Open mobile filter
+    if (mobileFilterBtn) {
+        mobileFilterBtn.addEventListener('click', function() {
+            mobileFilterModal.classList.add('active');
+            mobileFilterOverlay.classList.add('active');
+        });
+    }
+
+    // Close mobile filter
+    function closeMobileFilterModal() {
+        mobileFilterModal.classList.remove('active');
+        mobileFilterOverlay.classList.remove('active');
+    }
+
+    if (closeMobileFilter) {
+        closeMobileFilter.addEventListener('click', closeMobileFilterModal);
+    }
+
+    if (mobileFilterOverlay) {
+        mobileFilterOverlay.addEventListener('click', closeMobileFilterModal);
+    }
+
+    // Apply filters
+    if (applyMobileFilters) {
+        applyMobileFilters.addEventListener('click', function() {
+            // Apply sort
+            const selectedSort = document.querySelector('input[name="mobileSort"]:checked');
+            if (selectedSort) {
+                document.getElementById('sortSelect').value = selectedSort.value;
+                applySorting();
+            }
+
+            // Apply filters
+            applyFilters();
+            closeMobileFilterModal();
+        });
+    }
+
+    // Clear filters
+    if (clearMobileFilters) {
+        clearMobileFilters.addEventListener('click', function() {
+            // Clear all checkboxes and radio buttons
+            document.querySelectorAll('.mobile-filter-modal input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.mobile-filter-modal input[type="radio"]').forEach(rb => rb.checked = false);
+            document.querySelector('input[name="mobileSort"][value="default"]').checked = true;
+            document.getElementById('mobileMinPrice').value = '';
+            document.getElementById('mobileMaxPrice').value = '';
+        });
+    }
 });

@@ -76,3 +76,7 @@
 .slider-btn.next {
     right: -18px;
 }
+
+.price .old {
+    text-decoration: line-through;
+}

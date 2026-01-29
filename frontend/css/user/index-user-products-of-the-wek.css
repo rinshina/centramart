@@ -1,14 +1,23 @@
+/* GLOBAL FIX (CRITICAL) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Section */
 .products-week {
     background: #ffffff;
 }
 
+/* Header */
 .section-header h4 {
     font-weight: 600;
 }
 
 .view-all {
     font-size: 14px;
-    color: #111;
+    color: #0d6efd;
     text-decoration: none;
 }
 
@@ -16,32 +25,17 @@
     text-decoration: underline;
 }
 
-/* Products Grid - Show only 4 cards */
-.products-week .row {
-    overflow: hidden;
-}
-
-.products-week .row .col-lg-4 {
-    flex: 0 0 25%;
-    max-width: 25%;
-}
-
-/* Show only first 3 cards initially */
-.products-week .row .col-lg-4:nth-child(n+4) {
-    display: none;
-}
-
-/* Product card */
+/* Product Card */
 .product-card {
     background: #fff;
     border: 1px solid #eee;
-    border-radius: 10px;
-    padding: 20px;
-    width: 280px;
-    min-height: 420px;
+    border-radius: 12px;
+    padding: 18px;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
+    transition: box-shadow 0.25s ease;
 }
 
 .product-card:hover {
@@ -63,9 +57,10 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
 }
 
-/* Text section */
+/* Body */
 .product-body {
     display: flex;
     flex-direction: column;
@@ -80,26 +75,14 @@
 .product-title {
     font-size: 0.95rem;
     line-height: 1.4;
+    font-weight: 500;
 
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    /* number of lines */
     -webkit-box-orient: vertical;
 
     overflow: hidden;
-    text-overflow: ellipsis;
-
     min-height: calc(1.4em * 2);
-    position: relative;
-}
-
-.product-title:hover {
-    overflow: visible;
-    white-space: normal;
-}
-.price {
-    font-weight: 600;
-    margin-bottom: 8px;
 }
 
 /* Rating */
@@ -118,9 +101,10 @@
     font-size: 15px;
     font-weight: 600;
     margin: 8px 0 14px;
+    color: #111;
 }
 
-/* Buttons */
+/* Button */
 .add-cart-btn {
     width: 100%;
     padding: 8px;
@@ -128,14 +112,36 @@
     border-radius: 4px;
 }
 
-
-
 .add-cart-btn.dark {
     background: #000;
     color: #fff;
 }
 
 .add-cart-btn:hover {
-    opacity: 0.9;
     background: #a40000;
+    color: #fff;
+}
+
+/* Mobile + Tablet tuning */
+@media (max-width: 991px) {
+    .product-card {
+        padding: 12px;
+    }
+
+    .product-img {
+        height: 140px;
+    }
+
+    .product-title {
+        font-size: 0.85rem;
+    }
+
+    .product-price {
+        font-size: 13px;
+    }
+
+    .add-cart-btn {
+        font-size: 12px;
+        padding: 6px;
+    }
 }

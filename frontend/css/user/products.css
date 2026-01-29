@@ -319,3 +319,122 @@ nav .breadcrumb{
         margin-bottom: 2rem;
     }
 }
+
+/* Mobile Filter Modal */
+.mobile-filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-filter-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-filter-modal {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-filter-modal.active {
+    left: 0;
+}
+
+.mobile-filter-header {
+    background: #1e40af;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-filter-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-filter-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.filter-section h6 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: block;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.radio-group input,
+.checkbox-group input {
+    margin-right: 0.5rem;
+}
+
+.price-inputs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.price-inputs input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.mobile-filter-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.mobile-filter-footer .btn-link {
+    text-decoration: none;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 992px) {
+    .mobile-filter-modal,
+    .mobile-filter-overlay {
+        display: none;
+    }
+}

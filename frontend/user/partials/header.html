@@ -1,50 +1,62 @@
 <section id="header">
     <div class="top-header py-3 xl-px-2 lg-px-1">
-        <div class="container-fluid ">
-            <div class="row align-items-center justify-content-evenly">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between px-2">
+                <!-- Hamburger Menu (Mobile/Tablet) -->
+                <div class="d-lg-none">
+                    <button class="hamburger-btn" onclick="toggleMobileMenu()">
+                        <div class="hamburger-line"></div>
+                        <div class="hamburger-line"></div>
+                        <div class="hamburger-line"></div>
+                    </button>
+                </div>
+                
                 <!-- Logo -->
-                <div class="logo col-xl-3 col-lg-4 col-md-8 col-6"><img src="../assets/images/logo.png" alt="CentraMart" height="40"></div>
-                <!-- Search (desktop only) -->
-                <div class="d-none d-lg-none d-xl-block col-xl-5 col-lg-4 col-md-8">
+                <div class="logo flex-shrink-0">
+                    <img src="../assets/images/logo.png" alt="CentraMart" height="40">
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex-grow-1 mx-3">
                     <div class="searchbar d-flex justify-content-between align-items-center">
                         <div>Search for anything...</div>
-                        <img src="../assets/icons/search icon.png" alt="" srcset="" width="20" height="20">
+                        <img src="../assets/icons/search icon.png" alt="" width="20" height="20">
                     </div>
                 </div>
 
                 <!-- Actions -->
-                <div class="col-xl-4 col-lg-5 col-md-8 col-6">
-                    <div class="d-flex justify-content-evenly w-full align-items-center">
-                        <div class="dropdown">
-                            <button class="btn lang-btn text-decoration-none p-2 d-flex align-items-center gap-1" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="../assets/icons/globe.png" alt="" srcset="" width="20" height="20">
-                                <span>En/Ar</span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">English</a></li>
-                                <li><a class="dropdown-item" href="#">Arabic</a></li>
-                            </ul>
-                        </div>
-                        <span class="login-btn d-flex align-items-center gap-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#loginModal"><img src="../assets/icons/contact.png" alt="" srcset="" width="20" height="20"> Login / Signup</span>
-                        <div class="dropdown user-greeting d-none">
-                            <button class="btn p-0 text-decoration-none d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Hi, Rinshina!
-                            </button>
-                            <ul class="dropdown-menu user-account-menu shadow">
-                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="account.html"><img src="../assets/icons/contact.png" width="16" height="16"> Account</a></li>
-                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="orders.html"><img src="../assets/icons/myorders.png" width="16" height="16"> My Orders</a></li>
-                                <li><a class="dropdown-item d-flex align-items-center gap-2" href="wallet.html"><img src="../assets/icons/payment.png" width="16" height="16"> Wallet</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item logout-item d-flex align-items-center gap-2" href="#" onclick="logout()"><img src="../assets/icons/logout.png" width="16" height="16"> Log out</a></li>
-                            </ul>
-                        </div>
-                        <span class="wishlist-link" onclick="checkLoginAndRedirect('wishlist.html')"><img src="../assets/icons/wishlist.png" alt="" srcset="" width="20" height="20"></span>
-                        <div class="dropdown cart-dropdown">
-                            <button class="btn p-0 d-flex align-items-center position-relative" type="button" onclick="checkLoginAndRedirect('shopping-cart.html')">
-                            
-                                <img src="../assets/icons/cart.png" width="20" height="20">
-                                <!-- Cart count badge -->
-                                <span class="cart-badge">02</span>
-                            </button>
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Desktop Elements -->
+                    <div class="dropdown d-none d-lg-block">
+                        <button class="btn lang-btn text-decoration-none p-1 d-flex align-items-center gap-1" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="../assets/icons/globe.png" alt="" width="20" height="20">
+                            <span class="d-none d-xl-inline">En/Ar</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Arabic</a></li>
+                        </ul>
+                    </div>
+                    <span class="login-btn d-none d-lg-flex align-items-center gap-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#loginModal"><img src="../assets/icons/contact.png" alt="" width="20" height="20"> <span class="d-none d-xl-inline">Login</span></span>
+                    <div class="dropdown user-greeting d-none">
+                        <button class="btn p-0 text-decoration-none d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hi, Rinshina!
+                        </button>
+                        <ul class="dropdown-menu user-account-menu shadow">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="account.html"><img src="../assets/icons/contact.png" width="16" height="16"> Account</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="orders.html"><img src="../assets/icons/myorders.png" width="16" height="16"> My Orders</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="wallet.html"><img src="../assets/icons/payment.png" width="16" height="16"> Wallet</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item logout-item d-flex align-items-center gap-2" href="#" onclick="logout()"><img src="../assets/icons/logout.png" width="16" height="16"> Log out</a></li>
+                        </ul>
+                    </div>
+                    <span class="wishlist-link d-none d-lg-block" onclick="checkLoginAndRedirect('wishlist.html')"><img src="../assets/icons/wishlist.png" alt="" width="20" height="20"></span>
+                    
+                    <!-- Cart -->
+                    <div class="dropdown cart-dropdown">
+                        <button class="btn p-0 d-flex align-items-center position-relative" type="button" onclick="checkLoginAndRedirect('shopping-cart.html')">
+                            <img src="../assets/icons/cart.png" width="20" height="20">
+                            <span class="cart-badge">02</span>
+                        </button>
                             <!-- CART DROPDOWN -->
                             <div class="dropdown-menu cart-menu shadow">
                                 <h6>Shopping Cart (02)</h6>
@@ -97,12 +109,10 @@
                             </div>
                         </div>
 
-                        <span onclick="window.location.href='faqs.html'" style="cursor: pointer;">Need Help?</span>
-                    </div>
+                        <span class="d-none d-xl-block" onclick="window.location.href='faqs.html'" style="cursor: pointer;">Need Help?</span>
                 </div>
             </div>
         </div>
-
 
     </div>
     <div class=" nav-links border-top py-1">
@@ -166,10 +176,88 @@
                     </div>
                 </li>
 
-                <li class="nav-item nav-link new-arrivals" onclick="window.location.href='products.html?filter=new-arrivals'">New Arrivals</li>
-                <li class="nav-item nav-link best-sellers" onclick="window.location.href='products.html?filter=best-sellers'">Best Sellers</li>
-                <li class="nav-item nav-link hot-deals" onclick="window.location.href='products.html?filter=hot-deals'">Hot Deals</li>
+                <li class="nav-item nav-link new-arrivals" onclick="window.location.href='products.html'">New Arrivals</li>
+                <li class="nav-item nav-link best-sellers" onclick="window.location.href='products.html'">Best Sellers</li>
+                <li class="nav-item nav-link hot-deals" onclick="window.location.href='products.html'">Hot Deals</li>
             </ul>
         </div>
     </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="d-flex align-items-center gap-2">
+                <img src="../assets/icons/contact.png" width="20" height="20">
+                <span>Login or Sign up</span>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item d-flex justify-content-between align-items-center" onclick="toggleCategoriesMenu()">
+                <span>Shop All Categories</span>
+                <span>›</span>
+            </div>
+            <div class="mobile-menu-item d-flex justify-content-between align-items-center" onclick="toggleBrandsMenu()">
+                <span>Brands</span>
+                <span>›</span>
+            </div>
+            <div class="mobile-menu-item" onclick="window.location.href='products.html?filter=new-arrivals'">New Arrivals</div>
+            <div class="mobile-menu-item" onclick="window.location.href='products.html?filter=best-sellers'">Best Sellers</div>
+            <div class="mobile-menu-item" onclick="window.location.href='products.html?filter=hot-deals'">Hot Deals</div>
+            <div class="mobile-menu-item" onclick="checkLoginAndRedirect('wishlist.html')">Wishlist</div>
+            <div class="mobile-menu-item">Services</div>
+            <div class="mobile-menu-item">Open Box Deals</div>
+            <div class="mobile-menu-item">Gifting</div>
+            <div class="mobile-menu-footer">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="../assets/icons/globe.png" width="20" height="20">
+                    <span>Arabic</span>
+                </div>
+                <div class="d-flex align-items-center gap-2" onclick="window.location.href='faqs.html'">
+                    <img src="../assets/icons/contact.png" width="20" height="20">
+                    <span>Need Help?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Menu -->
+    <div class="mobile-submenu" id="categoriesMenu">
+        <div class="mobile-menu-header">
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn p-0" onclick="toggleCategoriesMenu()">←</button>
+                <span>All Categories</span>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item">Smartphones</div>
+            <div class="mobile-menu-item">Laptops & Tablets</div>
+            <div class="mobile-menu-item">Televisions & Audio</div>
+            <div class="mobile-menu-item">Cameras</div>
+            <div class="mobile-menu-item">Home & Kitchen</div>
+            <div class="mobile-menu-item">Accessories</div>
+        </div>
+    </div>
+    
+    <!-- Brands Menu -->
+    <div class="mobile-submenu" id="brandsMenu">
+        <div class="mobile-menu-header">
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn p-0" onclick="toggleBrandsMenu()">←</button>
+                <span>Brands</span>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item">Apple</div>
+            <div class="mobile-menu-item">Samsung</div>
+            <div class="mobile-menu-item">Sony</div>
+            <div class="mobile-menu-item">LG</div>
+            <div class="mobile-menu-item">Dyson</div>
+            <div class="mobile-menu-item">Bosch</div>
+        </div>
+    </div>
+    
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
 </section>

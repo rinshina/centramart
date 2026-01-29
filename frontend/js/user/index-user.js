@@ -5,6 +5,24 @@ function loadHTML(id, file) {
       document.getElementById(id).innerHTML = data;
     });
 }
+function waitForElement(selector, callback) {
+  const el = document.querySelector(selector);
+  if (el) {
+    callback(el);
+    return;
+  }
+
+  const observer = new MutationObserver(() => {
+    const el = document.querySelector(selector);
+    if (el) {
+      observer.disconnect();
+      callback(el);
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
 // banner
 let scrollIndex = 0;
 
@@ -112,92 +130,124 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(initializeAuthState, 100);
 
 
-// laptop savings slider
-setTimeout(() => {
-  const track = document.getElementById("laptop-track");
-  if (!track) return;
+// Laptop Savings Slider
+waitForElement("#laptop-track", (track) => {
+  const wrapper = track.closest(".slider-wrapper");
+  const prevBtn = wrapper.querySelector(".slider-btn.prev");
+  const nextBtn = wrapper.querySelector(".slider-btn.next");
 
-  const prevBtn = document.querySelector('[data-target="laptop-track"].prev');
-  const nextBtn = document.querySelector('[data-target="laptop-track"].next');
-  
-  if (!prevBtn || !nextBtn) return;
-  
-  const cardWidth = 304;
   let currentIndex = 0;
-  const maxIndex = track.children.length - 4;
+
+  const getCardsPerView = () => (window.innerWidth <= 991 ? 2 : 4);
+
+  const getCardWidth = () => {
+    const card = track.children[0];
+    const gap = parseInt(getComputedStyle(track).gap) || 0;
+    return card.offsetWidth + gap;
+  };
 
   function updateSlider() {
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    const cardsPerView = getCardsPerView();
+    const maxIndex = Math.max(0, track.children.length - cardsPerView);
+    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+    track.style.transform = `translateX(-${currentIndex * getCardWidth()}px)`;
   }
 
-  nextBtn.addEventListener("click", () => {
-    currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+  nextBtn.onclick = () => {
+    currentIndex += getCardsPerView();
+    updateSlider();
+  };
+
+  prevBtn.onclick = () => {
+    currentIndex -= getCardsPerView();
+    updateSlider();
+  };
+
+  window.addEventListener("resize", () => {
+    currentIndex = 0;
     updateSlider();
   });
 
-  prevBtn.addEventListener("click", () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
-    updateSlider();
-  });
-}, 500);
+  updateSlider();
+});
+
+
 
 // mobile deals slider
-setTimeout(() => {
-  const track = document.getElementById("mobile-track");
-  if (!track) return;
+waitForElement("#mobile-track", (track) => {
+  const wrapper = track.closest(".slider-wrapper");
+  const prevBtn = wrapper.querySelector(".prev");
+  const nextBtn = wrapper.querySelector(".next");
 
-  const prevBtn = document.querySelector('[data-target="mobile-track"].prev');
-  const nextBtn = document.querySelector('[data-target="mobile-track"].next');
-  
-  if (!prevBtn || !nextBtn) return;
-  
-  const cardWidth = 304;
-  let currentIndex = 0;
-  const maxIndex = track.children.length - 4;
+  const cardWidth = track.children[0].offsetWidth + 24;
+  let index = 0;
 
-  function updateSlider() {
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-  }
+  nextBtn.onclick = () => {
+    index = Math.min(index + 1, track.children.length - 4);
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  };
 
-  nextBtn.addEventListener("click", () => {
-    currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
-    updateSlider();
-  });
+  prevBtn.onclick = () => {
+    index = Math.max(index - 1, 0);
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  };
+});
 
-  prevBtn.addEventListener("click", () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
-    updateSlider();
-  });
-}, 500);
 
 // self-grooming slider
-setTimeout(() => {
-  const track = document.getElementById("grooming-track");
-  if (!track) return;
+waitForElement("#grooming-track", (track) => {
+  const wrapper = track.closest(".slider-wrapper");
+  const prevBtn = wrapper.querySelector(".prev");
+  const nextBtn = wrapper.querySelector(".next");
 
-  const prevBtn = document.querySelector('[data-target="grooming-track"].prev');
-  const nextBtn = document.querySelector('[data-target="grooming-track"].next');
-  
-  if (!prevBtn || !nextBtn) return;
-  
-  const cardWidth = 304;
-  let currentIndex = 0;
+  const cardWidth = track.children[0].offsetWidth + 24;
+  let index = 0;
   const maxIndex = track.children.length - 4;
 
-  function updateSlider() {
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  function update() {
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
-  nextBtn.addEventListener("click", () => {
-    currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
-    updateSlider();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
-    updateSlider();
-  });
-}, 500);
+  nextBtn.onclick = () => {
+    index = index < maxIndex ? index + 1 : 0;
+    update();
+  };
 
 
+  prevBtn.onclick = () => {
+    index = index > 0 ? index - 1 : maxIndex;
+    update();
+  };
+
+
+  update();
+});
+
+
+// Mobile menu toggle function
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  
+  mobileMenu.classList.toggle('active');
+  mobileOverlay.classList.toggle('active');
+}
+
+// Categories submenu toggle
+function toggleCategoriesMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  const categoriesMenu = document.getElementById('categoriesMenu');
+  
+  mobileMenu.classList.toggle('active');
+  categoriesMenu.classList.toggle('active');
+}
+
+// Brands submenu toggle
+function toggleBrandsMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  const brandsMenu = document.getElementById('brandsMenu');
+  
+  mobileMenu.classList.toggle('active');
+  brandsMenu.classList.toggle('active');
+}
 

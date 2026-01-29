@@ -1,78 +1,165 @@
-.product-slider {
-    margin: 4rem 0;
-    padding: 0 5rem;
+/* ===============================
+   LAPTOP SAVINGS SLIDER
+================================ */
+
+.laptop-savings {
+    padding: 4rem 0;
+    background: #fff;
 }
 
-.slider-wrapper {
+/* Slider shell */
+.laptop-savings .slider-wrapper {
     position: relative;
 }
 
-.slider-track {
-    display: flex;
-    gap: 24px;
-    transition: transform 0.4s ease;
-}
-
-.slider-viewport {
+/* Viewport */
+.laptop-savings .slider-viewport {
     overflow: hidden;
     width: 100%;
 }
 
-.product-card {
-    width: 280px;
-    min-height: 420px;
+/* Track */
+.laptop-savings .slider-track {
     display: flex;
-    flex-direction: column;
+    gap: 24px;
+    transition: transform 0.35s ease;
+    will-change: transform;
+}
+
+/* ===============================
+   PRODUCT CARD (BASE)
+================================ */
+
+.laptop-savings .product-card {
+    flex: 0 0 calc(25% - 18px);
+    /* 4 cards desktop */
     background: #fff;
     border: 1px solid #eee;
     border-radius: 12px;
-    padding: 20px;
-    flex-shrink: 0;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.product-img {
+/* Image */
+.laptop-savings .product-img {
     height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 12px;
 }
 
-.product-img img {
+.laptop-savings .product-img img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-/* Show only 4 cards at a time */
-.slider-viewport {
-    width: calc(280px * 4 + 24px * 3);
-    max-width: 100%;
+/* Info */
+.laptop-savings .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-/* arrows */
-.slider-btn {
+.laptop-savings .category {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+.laptop-savings .title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    min-height: calc(1.4em * 2);
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.laptop-savings .rating {
+    font-size: 14px;
+    color: #f5a623;
+}
+
+.laptop-savings .rating span {
+    font-size: 12px;
+    color: #777;
+}
+
+.laptop-savings .price {
+    font-size: 14px;
+    margin: 6px 0 10px;
+}
+
+.laptop-savings .price .old {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 6px;
+}
+
+.laptop-savings .price .new {
+    font-weight: 600;
+    color: #000;
+}
+
+/* ===============================
+   SLIDER ARROWS
+================================ */
+
+.laptop-savings .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
     background: #000;
     color: #fff;
+    font-size: 22px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 5;
 }
 
-.slider-btn.prev {
-    left: -18px;
+.laptop-savings .slider-btn.prev {
+    left: -20px;
 }
 
-.slider-btn.next {
-    right: -18px;
+.laptop-savings .slider-btn.next {
+    right: -20px;
+}
+
+/* ===============================
+   RESPONSIVE RULES (KEY PART)
+================================ */
+
+/* <= 991px → 2 cards */
+@media (max-width: 991px) {
+    .laptop-savings .product-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+
+    .laptop-savings .slider-btn {
+        display: none;
+        /* optional, matches jumbo-style */
+    }
+}
+
+/* <= 576px → still 2 cards (no collapse) */
+@media (max-width: 576px) {
+    .laptop-savings .slider-track {
+        gap: 16px;
+    }
+
+    .laptop-savings .product-img {
+        height: 140px;
+    }
+
+    .laptop-savings .title {
+        font-size: 0.85rem;
+    }
 }

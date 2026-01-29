@@ -34,7 +34,7 @@
             <div class="row">
                 
                 <!-- FILTERS SIDEBAR -->
-                <div class="col-lg-3 col-md-4">
+                <div class="col-lg-3 col-md-4 d-none d-lg-block">
                     <div class="filters-sidebar">
                         
                         <h5>PRICE RANGE</h5>
@@ -170,6 +170,11 @@
                             <span id="resultsCount">0 products found</span>
                         </div>
                         <div class="d-flex flex-row gap-3">
+                            <!-- Mobile Filter Button -->
+                            <button class="btn btn-primary d-lg-none" id="mobileFilterBtn">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                            
                             <div class="search-bar d-none d-lg-block position-relative">
                                 <input type="text" id="searchInput" class="form-control" placeholder="Search for anything...">
                                 <button class="search-btn" type="button">
@@ -228,6 +233,58 @@
 
     <!-- FOOTER -->
     <div id="footer-placeholder"></div>
+
+    <!-- Mobile Filter Modal -->
+    <div class="mobile-filter-modal" id="mobileFilterModal">
+        <div class="mobile-filter-header">
+            <h5><i class="fas fa-filter"></i> Filter</h5>
+            <button class="close-btn" id="closeMobileFilter">&times;</button>
+        </div>
+        
+        <div class="mobile-filter-content">
+            <div class="filter-section">
+                <h6>Sort By</h6>
+                <div class="radio-group">
+                    <label><input type="radio" name="mobileSort" value="default" checked> Relevance</label>
+                    <label><input type="radio" name="mobileSort" value="price-low"> Price Low to High</label>
+                    <label><input type="radio" name="mobileSort" value="price-high"> Price High to Low</label>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h6>Categories</h6>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="laptops"> Laptops</label>
+                    <label><input type="checkbox" value="mobiles"> Mobiles</label>
+                    <label><input type="checkbox" value="personal-care"> Personal Care</label>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h6>Price Range</h6>
+                <div class="price-inputs">
+                    <input type="number" placeholder="Min Price" id="mobileMinPrice">
+                    <input type="number" placeholder="Max Price" id="mobileMaxPrice">
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h6>Brand</h6>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="Apple"> Apple</label>
+                    <label><input type="checkbox" value="Samsung"> Samsung</label>
+                    <label><input type="checkbox" value="Sony"> Sony</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mobile-filter-footer">
+            <button class="btn btn-primary w-100" id="applyMobileFilters">APPLY</button>
+            <button class="btn btn-link" id="clearMobileFilters">Clear filters</button>
+        </div>
+    </div>
+    
+    <div class="mobile-filter-overlay" id="mobileFilterOverlay"></div>
 
     <!-- MODALS -->
     <div id="login-modal-placeholder"></div>
