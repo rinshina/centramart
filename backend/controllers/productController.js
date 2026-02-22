@@ -94,3 +94,90 @@ export const getProducts=async(req,res)=>{
     }
 
 }
+
+export const getSingleProduct=async(req,res)=>{
+    try {
+        const {id}=req.params
+        const product=await Product.findById(id)
+        .populate('brand', 'name')
+        .populate('category', 'name')
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        return res.status(200).json(product);
+
+
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
+export const updateProduct=async(req,res)=>{
+    try {
+        const {id}=req.params
+        const updates=req.body
+        const product=await Product.findById(id)
+        if(!product){
+            return res.status(404).json({message:"Product not found"})
+        }
+        const allowedFields = [
+          "name",
+          "description",
+          "price",
+          "discountedPrice",
+          "brand",
+          "category",
+          "stock",
+          "images",
+          "tags",
+          "isActive",
+        ];
+
+        const filteredUpdates = {};
+
+        for (let key of allowedFields) {
+          if (updates[key] !== undefined) {
+            filteredUpdates[key] = updates[key];
+          }
+        }
+        //validate price logic
+        if(filteredUpdates.price!=null && filteredUpdates.price<0 && filteredUpdates.discountedPrice!=null && filteredUpdates.discountedPrice>filteredUpdates.price){
+            return res.status(400).json({message:"Price cannot be negative"})
+        }
+        // Validate brand if changed
+        if (filteredUpdates.brand) {
+            const brandExists = await Brand.findById(filteredUpdates.brand);
+            if (!brandExists || !brandExists.isActive) {
+                return res.status(400).json({ message: "Invalid brand" });
+            }
+        }
+        // Validate category if changed
+        if (filteredUpdates.category) {
+            const categoryExists = await Category.findById(filteredUpdates.category);
+            if (!categoryExists || !categoryExists.isActive) {
+                return res.status(400).json({ message: "Invalid category" });
+            }
+        }
+        const updatedProduct=await Product.findByIdAndUpdate(id, filteredUpdates, {new:true})
+        .populate('brand', 'name')
+        .populate('category', 'name')
+    } catch (error) {
+        return res.status(500).json({message:error.message})
+    }
+
+}
+
+export const deleteProduct=async(req,res)=>{
+    try {
+        const {id}=req.params
+        const product=await Product.findById(id)
+        if(!product){
+            return res.status(404).json({message:"Product not found"})
+        }
+        product.isActive=false
+        await product.save()
+        return res.status(200).json({ message: "Product deactivated" });
+    } catch (error) {
+        return res.status(500).json({message:error.message})
+    }
+}
