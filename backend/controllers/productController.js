@@ -56,3 +56,41 @@ export const createProduct = async(req,res)=>{
         return res.status(500).json({ message: error.message });
     }
 }
+export const getProducts=async(req,res)=>{
+    try {
+        const {page=1, limit=20, brand, category, isActive}=req.query
+        const query={}
+        //filter by brand
+        if(brand)
+            query.brand=brand
+        //filter by category
+        if(category)
+            query.category=category
+        //filter by active status
+        if(isActive!=undefined)
+            query.isActive=isActive==='true'
+        else
+            query.isActive=true//default is active products only
+        const pageNumber=Number(page)
+        const pageSize=Number(limit)
+
+        const total=await Product.countDocuments(query)
+        const products=await Product.find(query)
+        .populate('brand','name')
+        .populate('category','name')
+        .skip((pageNumber-1)*pageSize)
+        .limit(pageSize)
+        .sort({createdAt:-1})
+
+        return res.json({
+            totalProducts:total,
+            currentPage: pageNumber,
+            totalPages: Math.ceil(total/pageSize),
+            products,
+        })
+
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+
+}
