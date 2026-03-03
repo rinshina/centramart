@@ -24,3 +24,11 @@ export const createBrand = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+export const getBrands=async (req,res)=>{
+  try {
+    const brands=await Brand.find({isActive:true}).select("name")
+    res.json(brands)
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}

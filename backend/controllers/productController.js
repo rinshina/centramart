@@ -58,14 +58,37 @@ export const createProduct = async(req,res)=>{
 }
 export const getProducts=async(req,res)=>{
     try {
-        const {page=1, limit=20, brand, category, isActive}=req.query
+        console.log("QUERY PARAMS:", req.query);
+        const {page=1, limit=12, brand, category, search, minPrice, maxPrice, sort, isActive}=req.query
         const query={}
         //filter by brand
-        if(brand)
-            query.brand=brand
+        if(brand){
+            const brandIds=brand.split(",")
+            query.brand={$in:brandIds}
+        }
         //filter by category
-        if(category)
-            query.category=category
+        if (category) {
+          const categoryIds = category.split(",");
+          query.category = { $in: categoryIds };
+        }
+        //search
+        if (search) {
+            query.name = { $regex: search, $options: "i" };
+        }
+        // Price filter
+        if (minPrice || maxPrice) {
+          query.discountedPrice = {};
+          if (minPrice) query.discountedPrice.$gte = Number(minPrice);
+          if (maxPrice) query.discountedPrice.$lte = Number(maxPrice);
+        }
+
+        //sort options
+        let sortOptions={createdAt:-1}
+        if(sort=="price-low") sortOptions={discountedPrice:1}
+        if(sort=="price-high") sortOptions={discountedPrice:-1}
+        if(sort=="name") sortOptions={name:1}
+        if(sort=="rating") sortOptions={rating:1}
+
         //filter by active status
         if(isActive!=undefined)
             query.isActive=isActive==='true'
@@ -78,9 +101,9 @@ export const getProducts=async(req,res)=>{
         const products=await Product.find(query)
         .populate('brand','name')
         .populate('category','name')
+        .sort(sortOptions)
         .skip((pageNumber-1)*pageSize)
         .limit(pageSize)
-        .sort({createdAt:-1})
 
         return res.json({
             totalProducts:total,
@@ -161,6 +184,7 @@ export const updateProduct=async(req,res)=>{
         const updatedProduct=await Product.findByIdAndUpdate(id, filteredUpdates, {new:true})
         .populate('brand', 'name')
         .populate('category', 'name')
+        return res.status(200).json(updatedProduct);
     } catch (error) {
         return res.status(500).json({message:error.message})
     }
