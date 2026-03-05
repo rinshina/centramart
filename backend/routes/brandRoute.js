@@ -4,7 +4,7 @@ import { createBrand , getBrands} from '../controllers/brandController.js';
 
 const brandRouter=express.Router()
 brandRouter.post("/", protect, adminOnly, createBrand);
-brandRouter.post("/brand", getBrands);
+brandRouter.get("/", getBrands);
 
 
 export default brandRouter;

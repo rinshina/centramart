@@ -5,7 +5,7 @@ import { protect, adminOnly } from "../middleware/authMiddleware.js";
 const categoryRouter = express.Router();
 
 categoryRouter.post("/", protect, adminOnly, createCategory);
-categoryRouter.post("/category", getCategories);
+categoryRouter.get("/", getCategories);
 
 
 export default categoryRouter;

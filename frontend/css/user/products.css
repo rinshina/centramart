@@ -86,13 +86,13 @@ nav .breadcrumb{
     border-color: #a01010;
     box-shadow: 0 0 0 0.25rem rgba(160, 16, 16, 0.25);
 }
-.popular-tags {
+.categories {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-.tag {
+.category {
     display: inline-block;
     padding: 8px 12px;
     border: 1px solid #ddd;
@@ -105,12 +105,12 @@ nav .breadcrumb{
     user-select: none;
 }
 
-.tag:hover {
+.category:hover {
     border-color: #a01010;
     color: #a01010;
 }
 
-.tag.selected {
+.category.selected {
     background-color: #a01010;
     border-color: #a01010;
     color: #fff;

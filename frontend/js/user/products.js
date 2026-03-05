@@ -1,3 +1,5 @@
+
+
 const BASE_URL = "http://localhost:5000/api";
 const ITEMS_PER_PAGE = 12;
 
@@ -9,25 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
     loadBrands();
     loadProducts();
     setupEvents();
+    loadCategories();
 });
 //load categories
 async function loadCategories() {
     try {
         const response = await fetch(`${BASE_URL}/category`);
         const categories = await response.json();
-
-        const container = document.querySelector(".filter-section .checkbox-group");
+        if(!response.ok) throw new Error("Failed to load categories");
+        const container = document.querySelector(".categories");
 
         container.innerHTML = "";
 
         categories.forEach(category => {
             container.innerHTML += `
                 <label>
-                    <input type="checkbox" value="${category._id}">
+                    <input class="category-checkbox" type="checkbox" value="${category._id}">
                     ${category.name}
                 </label>
             `;
         });
+        
+        container.querySelectorAll(".category-checkbox").forEach(cb => cb.addEventListener("change", () => loadProducts(1)));
 
     } catch (error) {
         console.error("Error loading categories:", error);
@@ -36,17 +41,18 @@ async function loadCategories() {
 
 //loading brands
 async function loadBrands() {
-    const response = await fetch(`${BASE_URL}/brand`);
-    const data = await response.json();
 
-    const container = document.querySelector(".brand-filter .row");
+    const container = document.getElementById("brands-checks");
     container.innerHTML = "";
-
+    const response = await fetch(`${BASE_URL}/brand`)
+    const data = await response.json();
+    if(!response.ok) 
+        throw new Error("Failed to load brands");
     data.forEach(brand => {
         container.innerHTML += `
             <div class="col-6">
                 <div class="form-check">
-                    <input class="form-check-input"
+                    <input class="form-check-input brand-checkbox"
                         type="checkbox"
                         value="${brand._id}">
                     <label class="form-check-label">
@@ -56,6 +62,7 @@ async function loadBrands() {
             </div>
         `;
     });
+    container.querySelectorAll(".brand-checkbox").forEach(cb=>cb.addEventListener("change",()=>loadProducts(1)))
 }
 
 
@@ -64,12 +71,12 @@ async function loadProducts(page=1){
     try {
         const search=document.getElementById('searchInput').value || ''
         const sort=document.getElementById('sortSelect').value || ''
-        const minPrice=document.getElementById('mobileMinPrice').value || ''
-        const maxPrice=document.getElementById('mobileMaxPrice').value || ''
+        const minPrice= document.getElementById("minPrice")?.value || document.getElementById('mobileMinPrice')?.value || ''
+        const maxPrice= document.getElementById("maxPrice")?.value || document.getElementById('mobileMaxPrice')?.value || ''
 
-        const selectedBrands=Array.from(
-            document.querySelectorAll(".brand-filter input:checked")
-        ).map(cb=>cb.value)
+        const selectedBrands = [...document.querySelectorAll("#brands-checks input:checked")].map(cb => cb.value);
+
+        const selectedCategories = [...document.querySelectorAll(".categories input:checked")].map(cb => cb.value);
 
         const query = new URLSearchParams({
             page,
@@ -79,6 +86,7 @@ async function loadProducts(page=1){
             minPrice,
             maxPrice,
             brand: selectedBrands.join(","),
+            category: selectedCategories.join(",")
         });
 
         const response=await fetch(`${BASE_URL}/product?${query}`)
@@ -109,8 +117,7 @@ function renderProducts(products){
     grid.innerHTML = products.map(product => `
         <div class="product-card" onclick="goToProduct('${product._id}')">
             <div class="product-img">
-                <img src="${product.images?.[0] || '../../../backend/public/assets/placeholder.png'}" 
-                     alt="${product.name}">
+                <img src="${product.images?.[0] || 'http://localhost:5000/assets/placeholder.png'}" alt="${product.name}">
             </div>
             <div class="product-body">
                 <span class="product-category">${product.category?.name || ""}</span>
@@ -130,6 +137,8 @@ function renderProducts(products){
         </div>
     `).join("");
 }
+
+
 
 //pagination
 function renderPagination() {
@@ -155,7 +164,23 @@ function renderPagination() {
         if (currentPage < totalPages) loadProducts(currentPage + 1);
     };
 }
-
+//handling price range radios
+function handlePriceRange(e){
+    const value=e.target.value;
+    const priceRanges = {
+        "all": [null,null],
+        "under-200": [null,200],
+        "25-100": [25,100],
+        "100-300": [100,300],
+        "300-500": [300,500],
+        "500-1000": [500,1000],
+        "1000-10000": [1000,10000]
+    };
+    const [min,max] = priceRanges[value] || ["",""];
+    document.getElementById("minPrice").value=min;
+    document.getElementById("maxPrice").value=max;
+    loadProducts(1)
+}
 //events
 function setupEvents() {
     document.getElementById("sortSelect")
@@ -172,6 +197,15 @@ function setupEvents() {
 
     document.getElementById("maxPrice")
         ?.addEventListener("input", () => loadProducts(1));
+
+    document.getElementById("mobileMinPrice")
+        ?.addEventListener("input", () => loadProducts(1));
+
+    document.getElementById("mobileMaxPrice")
+        ?.addEventListener("input", () => loadProducts(1));
+
+    document.querySelectorAll("input[name='priceRange']")
+        .forEach(radio=>radio.addEventListener("change", (e)=>handlePriceRange(e)))
 }
 
 function goToProduct(id) {
