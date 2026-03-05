@@ -83,8 +83,7 @@ function renderProduct(product){
                     <div class="product-highlights mb-2">
                         <h5>Product Highlights</h5>
                         <ul>
-                            <li>Ten speed levels to best adapt the different dough consistencies, to always ensure excellent results</li>
-                            <li>Smooth Start system, for a perfect blending efficiency of</li>
+                            ${(product.highlights||[]).map(li=> `<li>${li}</li>`).join("")} 
                         </ul>
                     </div>
 
@@ -93,7 +92,7 @@ function renderProduct(product){
                         <div class="specs-grid">
                             <div class="spec-row">
                                 <span class="spec-label">Warranty</span>
-                                <span class="spec-value">1 year</span>
+                                <span class="spec-value">${product.specifications.warranty}</span>
                             </div>
                             <div class="spec-row">
                                 <span class="spec-label">Product Dimensions</span>
@@ -109,7 +108,7 @@ function renderProduct(product){
                             </div>
                             <div class="spec-row">
                                 <span class="spec-label">Capacity</span>
-                                <span class="spec-value">4.8 liters</span>
+                                <span class="spec-value">${product.specifications.capacity}</span>
                             </div>
                         </div>
                     </div>
