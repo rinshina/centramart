@@ -24,6 +24,7 @@ function initializeAuthState() {
 
 // Check login status and redirect or show modal
 function checkLoginAndRedirect(url) {
+    const isLoggedIn=localStorage.getItem("isLoggedIn")==='true'
     if (isLoggedIn) {
         window.location.href = url;
     } else {

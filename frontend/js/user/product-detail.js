@@ -119,7 +119,7 @@ function renderProduct(product){
                     </div>
 
                     <div class="product-actions mb-4">
-                        <button class="wishlist-btn">♡ Add to Wishlist</button>
+                        <button class="wishlist-btn" data-id="${product._id}">♡ Add to Wishlist</button>
                         <div class="share-buttons">
                             <span>Share product:</span>
                             <a href="#" class="share-btn"><img src="../assets/icons/copy link.png" alt="" srcset="" width="20" height="20"></a>
@@ -214,16 +214,29 @@ function initializeProductUI(){
     
     // Wishlist functionality
     const wishlistBtn = container.querySelector('.wishlist-btn');
+    const productId=wishlistBtn.dataset.id
+    let wishlist = JSON.parse(localStorage.getItem("wishlist"))||[]
+    if(wishlist.includes(productId)){
+        wishlistBtn.innerHTML = '♥ Added to Wishlist';
+        wishlistBtn.style.color = '#a01010';
+    }
     wishlistBtn.addEventListener('click', function() {
-        console.log('Added to wishlist');
-        // Toggle wishlist state
-        if (this.textContent.includes('♡')) {
-            this.innerHTML = '♥ Added to Wishlist';
-            this.style.color = '#a01010';
-        } else {
+        const productId=this.dataset.id
+        let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[]
+        if(!Array.isArray(wishlist))
+            wishlist=[]
+        const exists=wishlist.includes(productId)
+        if(exists){
+            wishlist=wishlist.filter(id=>id!==productId)
             this.innerHTML = '♡ Add to Wishlist';
             this.style.color = '#666';
+        }else {
+            wishlist.push(productId)
+            this.innerHTML = '♥ Added to Wishlist';
+            this.style.color = '#a01010';
         }
+        localStorage.setItem("wishlist",JSON.stringify(wishlist))
     });
+    
 }
     

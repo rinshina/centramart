@@ -59,7 +59,7 @@ export const createProduct = async(req,res)=>{
 export const getProducts=async(req,res)=>{
     try {
         console.log("QUERY PARAMS:", req.query);
-        const {page=1, limit=12, brand, category, search, minPrice, maxPrice, sort, isActive}=req.query
+        const {_id,page=1, limit=12, brand, category, search, minPrice, maxPrice, sort, isActive}=req.query
         const query={}
         //filter by brand
         if(brand){
@@ -70,6 +70,11 @@ export const getProducts=async(req,res)=>{
         if (category) {
           const categoryIds = category.split(",");
           query.category = { $in: categoryIds };
+        }
+        //filter by productID
+        if (_id) {
+          const productIds = _id.split(",");
+          query._id = { $in: productIds };
         }
         //search
         if (search) {
