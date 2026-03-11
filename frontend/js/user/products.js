@@ -1,6 +1,4 @@
 
-
-const BASE_URL = "http://localhost:5000/api";
 const ITEMS_PER_PAGE = 12;
 
 let currentPage = 1;
@@ -213,5 +211,20 @@ function goToProduct(id) {
 }
 
 function addToCart(id) {
-    console.log("Add to cart:", id);
+    const cartBtn=document.querySelector('.add-cart-btn') 
+    let cart=getCart()
+    
+    if(exists){
+        cartBtn.innerHTML="Go to cart"
+    }else{
+        cart.push({
+            id,
+            quantity,
+            selected: true
+        });
+    }
+    saveCart(cart)
+    updateCartBadge()
 }
+
+    

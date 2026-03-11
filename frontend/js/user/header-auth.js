@@ -1,3 +1,4 @@
+
 // Header authentication logic
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 let userName = localStorage.getItem('userName');

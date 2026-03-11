@@ -1,4 +1,3 @@
-const BASE_URL="http://localhost:5000/api";
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,7 +19,7 @@ function renderProduct(product){
         container.innerHTML = "<h2>No such product found</h2>";
         return;
     }
-    const stars = "★".repeat(product.rating)
+    const stars = "★".repeat(product.rating) || 0
     const empty = "☆".repeat(5 - product.rating)
     const discountBadge = Math.ceil(((product.price - product.discountedPrice) / product.price) * 100)
     container.innerHTML=`
@@ -69,8 +68,8 @@ function renderProduct(product){
                     </div>
 
                     <div class="quantity-selector mb-2">
-                        <button class="qty-btn minus">-</button>
-                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn minus" data-id="${product._id}">-</button>
+                        <input type="number" value="1" min="0" class="qty-input">
                         <button class="qty-btn plus">+</button>
                     </div>
 
@@ -114,7 +113,7 @@ function renderProduct(product){
                     </div>
 
                     <div class="action-buttons mb-4">
-                        <button class="btn btn-add-cart">ADD TO CART</button>
+                        <button class="btn btn-add-cart" onclick="event.stopPropagation(); addToCart('${product._id}')">ADD TO CART</button>
                         <button class="btn btn-buy-now">BUY NOW</button>
                     </div>
 
@@ -157,6 +156,7 @@ function initializeProductUI(){
     const container = document.getElementById("product-detail")
     const mainImage = document.getElementById('mainImage');
     const thumbnails = container.querySelectorAll('.thumbnail');
+    const cart=getCart()
     
     thumbnails.forEach(thumb => {
         thumb.addEventListener('click', function() {
@@ -174,15 +174,38 @@ function initializeProductUI(){
     const plusBtn = container.querySelector('.qty-btn.plus');
     
     minusBtn.addEventListener('click', function() {
+        const id= minusBtn.dataset.id
         let currentValue = parseInt(qtyInput.value);
+        const item=cart.find(item=>item.id===id)
         if (currentValue > 1) {
-            qtyInput.value = String(currentValue - 1).padStart(2, '0');
+            currentValue--
+            qtyInput.value = currentValue
+        }
+        if (currentValue === 1) {
+            cart = cart.filter(item => item.id !== id);
+            saveCart(cart)
+        }
+        qtyInput.value=currentValue
+        if(item){
+            item.quantity=currentValue
+            saveCart(cart)
         }
     });
     
     plusBtn.addEventListener('click', function() {
+        const id= minusBtn.dataset.id
         let currentValue = parseInt(qtyInput.value);
-        qtyInput.value = String(currentValue + 1).padStart(2, '0');
+        currentValue++
+        qtyInput.value = currentValue
+        const item=cart.find(item=>id===item.id)
+        if(item){
+            item.quantity=currentValue
+            saveCart(cart)
+        }else{
+            addToCart(id,currentValue,true)
+            document.querySelector(".btn-add-cart").innerHTML = "GO TO CART";
+        }
+        updateCartBadge()
     });
     
     // Thumbnail navigation
@@ -198,12 +221,7 @@ function initializeProductUI(){
         thumbnailsContainer.scrollBy({ left: 120, behavior: 'smooth' });
     });
     
-    // Add to cart functionality
-    const addToCartBtn = container.querySelector('.btn-add-cart');
-    addToCartBtn.addEventListener('click', function() {
-        console.log('Added to cart');
-        // Add cart functionality here
-    });
+    
     
     // Buy now functionality
     const buyNowBtn = container.querySelector('.btn-buy-now');
@@ -215,6 +233,10 @@ function initializeProductUI(){
     // Wishlist functionality
     const wishlistBtn = container.querySelector('.wishlist-btn');
     const productId=wishlistBtn.dataset.id
+
+    if(cart.some(item => item.id === productId)){
+        document.querySelector(".btn-add-cart").innerHTML = "GO TO CART";
+    }
     let wishlist = JSON.parse(localStorage.getItem("wishlist"))||[]
     if(wishlist.includes(productId)){
         wishlistBtn.innerHTML = '♥ Added to Wishlist';
@@ -240,3 +262,26 @@ function initializeProductUI(){
     
 }
     
+function addToCart(id) {
+    const cartBtn=document.querySelector('.btn-add-cart')
+    let cart = getCart()
+    const qty = parseInt(document.querySelector('.qty-input').value) || 1;
+    const item = cart.find(i => i.id === id)
+    if(item){
+        item.quantity += qty
+        window.location.href = "shopping-cart.html";
+    }else{
+        cart.push({
+            id,
+            quantity:qty,
+            selected: true
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        cartBtn.innerHTML="Go to cart"
+    }
+
+    saveCart(cart)
+
+    updateCartBadge()
+}
+

@@ -286,7 +286,18 @@ nav .breadcrumb{
 .product-card:hover {
     transform: translateY(-4px);
 }
+.product-price .old {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+    font-size: 14px;
+}
 
+.product-price .new {
+    color: #111;
+    font-weight: 600;
+    font-size: 16px;
+}
 .pagination {
     --bs-pagination-color: #666;
     --bs-pagination-bg: #fff;

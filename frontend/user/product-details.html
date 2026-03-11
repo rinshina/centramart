@@ -30,23 +30,27 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/user/cart.js"></script>
     <script src="../js/user/header-auth.js"></script>
     <script src="../js/user/product-detail.js"></script>
     <script>
-        // Load partials
         function loadHTML(id, file) {
-            fetch(file)
+            return fetch(file)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(id).innerHTML = data;
                 });
         }
-        
-        loadHTML("header-placeholder", "partials/header.html");
+
+        loadHTML("header-placeholder", "partials/header.html")
+            .then(() => {
+                initializeAuthState();
+                updateCartBadge();
+                renderCartDropdown()
+            });
+
         loadHTML("footer-placeholder", "partials/footer.html");
-        
-        // Initialize auth state after header loads
-        setTimeout(initializeAuthState, 100);
     </script>
+
 </body>
 </html>

@@ -27,7 +27,19 @@
 .cart-item-row:last-child {
     border-bottom: none;
 }
+.remove-btn {
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    border: none;
+    width: 18px;
+    height: 18px;
+}
 
+.remove-btn:hover {
+    color: #a01010;
+    border: none;
+}
 .item-checkbox {
     flex-shrink: 0;
 }

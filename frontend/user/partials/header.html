@@ -53,48 +53,21 @@
                     
                     <!-- Cart -->
                     <div class="dropdown cart-dropdown">
-                        <button class="btn p-0 d-flex align-items-center position-relative" type="button" onclick="checkLoginAndRedirect('shopping-cart.html')">
+                        <button class="btn p-0 d-flex align-items-center position-relative" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../assets/icons/cart.png" width="20" height="20">
-                            <span class="cart-badge">02</span>
+                            <span class="cart-badge"></span>
                         </button>
                             <!-- CART DROPDOWN -->
-                            <div class="dropdown-menu cart-menu shadow">
-                                <h6>Shopping Cart (02)</h6>
-                        
-                                <!-- Item -->
-                                <div class="cart-item">
-                                    <img src="../assets/products/Canon EOS 1500D DSLR .png" class="cart-img">
-                                    <div class="cart-info">
-                                        <p class="cart-title">
-                                            Canon EOS 1500D DSLR Camera Body+ 18-55 mm
-                                        </p>
-                                        <div class="cart-meta">
-                                            <span>1 ×</span>
-                                            <span class="price">$1,500</span>
-                                        </div>
-                                    </div>
-                                    <span class="cart-remove">&times;</span>
+                            <div class="dropdown-menu cart-menu shadow" >
+                                <h6>Shopping Cart</h6>
+                                <div class="cartDropDownGrid">
+                                    <!-- items load here from cart -->
                                 </div>
-                            
-                                <!-- Item -->
-                                <div class="cart-item">
-                                    <img src="../assets/products/Simple Mobile 5G LTE Galexy 12 Mini 512GB Gaming Phone.png" class="cart-img">
-                                    <div class="cart-info">
-                                        <p class="cart-title">
-                                            Simple Mobile 5G LTE Galaxy 12 Mini 512GB
-                                        </p>
-                                        <div class="cart-meta">
-                                            <span>2 ×</span>
-                                            <span class="price">$269</span>
-                                        </div>
-                                    </div>
-                                    <span class="cart-remove">&times;</span>
-                                </div>
+                                
                             
                                 <!-- Subtotal -->
                                 <div class="cart-summary">
-                                    <span>Sub-Total:</span>
-                                    <span>$2038.00 USD</span>
+                                    <!-- cart summary loads here -->
                                 </div>
                             
                                 <!-- Actions -->
